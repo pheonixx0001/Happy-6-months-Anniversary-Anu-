@@ -1,0 +1,1264 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#d99aa8">
+<title>Six Months of Us ♡</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&display=swap');
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    -webkit-tap-highlight-color:transparent;
+}
+
+:root{
+    --pink:#d99aa8;
+    --pink2:#efc4ca;
+    --cream:#fff3dc;
+    --cream2:#ead8b8;
+    --brown:#76555a;
+    --deep:#593d43;
+    --gold:#c9a96b;
+}
+
+body{
+    min-height:100vh;
+    color:var(--deep);
+    font-family:"DM Sans",sans-serif;
+    overflow-x:hidden;
+    background:
+        radial-gradient(circle at 15% 20%,rgba(255,255,255,.28),transparent 20%),
+        radial-gradient(circle at 85% 80%,rgba(255,255,255,.2),transparent 25%),
+        repeating-radial-gradient(
+            ellipse at 50% 50%,
+            transparent 0 25px,
+            rgba(255,243,220,.07) 26px 29px,
+            transparent 30px 55px
+        ),
+        #d99aa8;
+}
+
+/* ROYAL BORDER */
+
+.page{
+    position:relative;
+    width:100%;
+    max-width:620px;
+    min-height:100vh;
+    margin:auto;
+    padding:18px;
+    overflow:hidden;
+}
+
+.ornate-border{
+    position:fixed;
+    inset:10px;
+    border:2px solid rgba(255,243,220,.88);
+    pointer-events:none;
+    z-index:50;
+    box-shadow:
+        inset 0 0 0 5px rgba(255,243,220,.16),
+        inset 0 0 0 9px rgba(105,70,70,.13);
+}
+
+.ornate-border:before,
+.ornate-border:after{
+    content:"❧";
+    position:absolute;
+    font-family:serif;
+    color:var(--cream);
+    font-size:46px;
+    text-shadow:0 2px 8px rgba(80,40,40,.15);
+}
+
+.ornate-border:before{
+    top:-16px;
+    left:-9px;
+    transform:rotate(-45deg);
+}
+
+.ornate-border:after{
+    bottom:-16px;
+    right:-9px;
+    transform:rotate(135deg);
+}
+
+/* BACKGROUND FILIGREE */
+
+.filigree{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    opacity:.36;
+    z-index:-1;
+}
+
+.filigree span{
+    position:absolute;
+    color:var(--cream);
+    font-family:"Times New Roman",serif;
+    font-size:70px;
+    animation:sway 7s ease-in-out infinite;
+}
+
+.f1{top:5%;left:4%;transform:rotate(-30deg)}
+.f2{top:22%;right:1%;transform:rotate(35deg);animation-delay:1s}
+.f3{top:48%;left:-3%;transform:rotate(-80deg);animation-delay:2s}
+.f4{bottom:20%;right:0;transform:rotate(80deg);animation-delay:3s}
+.f5{bottom:2%;left:5%;transform:rotate(30deg);animation-delay:4s}
+
+@keyframes sway{
+    0%,100%{transform:translateY(0) rotate(-30deg)}
+    50%{transform:translateY(-9px) rotate(-25deg)}
+}
+
+/* PETALS */
+
+.petal{
+    position:fixed;
+    top:-30px;
+    width:12px;
+    height:18px;
+    background:rgba(255,238,224,.78);
+    border-radius:100% 0 100% 0;
+    pointer-events:none;
+    animation:fall linear forwards;
+    z-index:40;
+}
+
+@keyframes fall{
+    to{
+        transform:translate3d(var(--x),110vh,0) rotate(480deg);
+        opacity:.1;
+    }
+}
+
+/* HERO */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    position:relative;
+    padding:45px 15px 30px;
+}
+
+.small-crown{
+    font-size:25px;
+    color:var(--cream);
+    letter-spacing:8px;
+    margin-bottom:14px;
+    animation:float 3s ease-in-out infinite;
+}
+
+.hero h1{
+    font-family:"Cormorant Garamond",serif;
+    font-size:clamp(50px,14vw,82px);
+    line-height:.8;
+    font-weight:600;
+    color:#fff2df;
+    text-shadow:0 4px 15px rgba(91,57,61,.18);
+}
+
+.hero h1 span{
+    display:block;
+    font-size:.55em;
+    letter-spacing:6px;
+    margin-top:20px;
+}
+
+.subtitle{
+    margin-top:22px;
+    font-family:"Cormorant Garamond",serif;
+    font-size:21px;
+    font-style:italic;
+    color:#fff1df;
+}
+
+.date-ribbon{
+    margin-top:25px;
+    padding:10px 24px;
+    border:1px solid rgba(255,243,220,.8);
+    border-radius:50px;
+    color:var(--cream);
+    background:rgba(255,243,220,.1);
+    backdrop-filter:blur(5px);
+}
+
+.scroll{
+    position:absolute;
+    bottom:35px;
+    font-size:11px;
+    letter-spacing:3px;
+    color:var(--cream);
+    animation:bounce 2s infinite;
+}
+
+@keyframes bounce{
+    0%,100%{transform:translateY(0)}
+    50%{transform:translateY(7px)}
+}
+
+@keyframes float{
+    0%,100%{transform:translateY(0)}
+    50%{transform:translateY(-8px)}
+}
+
+/* CARDS */
+
+.section{
+    margin:30px 0 65px;
+}
+
+.card{
+    position:relative;
+    background:
+        linear-gradient(rgba(255,250,236,.93),rgba(255,243,220,.93));
+    border:1px solid rgba(115,76,78,.2);
+    padding:30px 23px;
+    border-radius:5px;
+    box-shadow:
+        0 18px 45px rgba(83,48,54,.15),
+        inset 0 0 35px rgba(201,169,107,.1);
+}
+
+.card:before{
+    content:"";
+    position:absolute;
+    inset:8px;
+    border:1px solid rgba(185,148,95,.45);
+    pointer-events:none;
+}
+
+.section-title{
+    text-align:center;
+    font-family:"Cormorant Garamond",serif;
+    font-size:39px;
+    font-weight:600;
+    margin-bottom:6px;
+    color:#704b52;
+}
+
+.section-sub{
+    text-align:center;
+    font-family:"Cormorant Garamond",serif;
+    font-style:italic;
+    margin-bottom:23px;
+    opacity:.75;
+}
+
+/* LETTER */
+
+.letter{
+    font-family:"Cormorant Garamond",serif;
+    font-size:20px;
+    line-height:1.65;
+    white-space:pre-line;
+    position:relative;
+    z-index:2;
+}
+
+.signature{
+    text-align:right;
+    font-size:25px;
+    margin-top:22px;
+    font-style:italic;
+}
+
+/* CENTER CHARACTER */
+
+.character-box{
+    text-align:center;
+    margin:15px 0 35px;
+}
+
+.kitty{
+    width:190px;
+    height:190px;
+    margin:auto;
+    position:relative;
+    animation:kittyFloat 4s ease-in-out infinite;
+    cursor:pointer;
+    filter:drop-shadow(0 12px 10px rgba(91,54,60,.18));
+}
+
+@keyframes kittyFloat{
+    0%,100%{transform:translateY(0) rotate(0)}
+    50%{transform:translateY(-10px) rotate(1deg)}
+}
+
+/* cute cat illustration */
+
+.cat-head{
+    position:absolute;
+    width:130px;
+    height:108px;
+    background:#fff8ec;
+    border:3px solid #6f5354;
+    border-radius:48% 48% 45% 45%;
+    left:30px;
+    top:25px;
+}
+
+.ear{
+    position:absolute;
+    width:48px;
+    height:50px;
+    background:#fff8ec;
+    border:3px solid #6f5354;
+    top:5px;
+    z-index:-1;
+}
+
+.ear.left{
+    left:34px;
+    transform:rotate(-27deg);
+    border-radius:60% 10% 20% 20%;
+}
+
+.ear.right{
+    right:34px;
+    transform:rotate(27deg);
+    border-radius:10% 60% 20% 20%;
+}
+
+.eye{
+    position:absolute;
+    width:8px;
+    height:12px;
+    border-radius:50%;
+    background:#4d4141;
+    top:66px;
+}
+
+.eye.left{left:63px}
+.eye.right{right:63px}
+
+.nose{
+    position:absolute;
+    width:9px;
+    height:7px;
+    border-radius:50%;
+    background:#e2a05e;
+    top:79px;
+    left:59px;
+}
+
+.whisker{
+    position:absolute;
+    width:34px;
+    height:1px;
+    background:#6f5354;
+    top:82px;
+}
+
+.w1{left:4px;transform:rotate(8deg)}
+.w2{left:4px;top:90px;transform:rotate(-8deg)}
+.w3{right:4px;transform:rotate(-8deg)}
+.w4{right:4px;top:90px;transform:rotate(8deg)}
+
+.bow{
+    position:absolute;
+    width:48px;
+    height:32px;
+    right:4px;
+    top:12px;
+    z-index:5;
+}
+
+.bow:before,
+.bow:after{
+    content:"";
+    position:absolute;
+    width:28px;
+    height:25px;
+    background:#e989a2;
+    border:2px solid #8d5965;
+}
+
+.bow:before{
+    left:0;
+    transform:rotate(22deg);
+    border-radius:70% 25% 60% 25%;
+}
+
+.bow:after{
+    right:0;
+    transform:rotate(-22deg);
+    border-radius:25% 70% 25% 60%;
+}
+
+.bow span{
+    position:absolute;
+    width:14px;
+    height:14px;
+    background:#d97591;
+    border:2px solid #8d5965;
+    border-radius:50%;
+    left:17px;
+    top:9px;
+    z-index:2;
+}
+
+.body{
+    position:absolute;
+    width:98px;
+    height:80px;
+    left:46px;
+    top:112px;
+    background:#eda5b2;
+    border:3px solid #6f5354;
+    border-radius:45% 45% 20% 20%;
+}
+
+.arm{
+    position:absolute;
+    width:47px;
+    height:19px;
+    background:#fff8ec;
+    border:3px solid #6f5354;
+    border-radius:50%;
+    top:126px;
+    z-index:4;
+}
+
+.arm.left{left:27px;transform:rotate(28deg)}
+.arm.right{right:27px;transform:rotate(-28deg)}
+
+.lily{
+    position:absolute;
+    z-index:8;
+    left:58px;
+    top:100px;
+    transform:rotate(-13deg);
+}
+
+.flower{
+    position:relative;
+    width:55px;
+    height:55px;
+}
+
+.flower span{
+    position:absolute;
+    width:35px;
+    height:48px;
+    background:#f7b8c4;
+    border:1px solid #c67e91;
+    border-radius:70% 30% 70% 30%;
+    left:10px;
+    top:4px;
+}
+
+.flower span:nth-child(1){transform:rotate(0deg)}
+.flower span:nth-child(2){transform:rotate(72deg)}
+.flower span:nth-child(3){transform:rotate(144deg)}
+.flower span:nth-child(4){transform:rotate(216deg)}
+.flower span:nth-child(5){transform:rotate(288deg)}
+
+.flower i{
+    position:absolute;
+    width:12px;
+    height:12px;
+    background:#d49c4c;
+    border-radius:50%;
+    left:21px;
+    top:21px;
+    z-index:2;
+}
+
+/* COUNTDOWN */
+
+.countdown{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:9px;
+    margin-top:20px;
+}
+
+.time{
+    background:#d991a0;
+    color:#fff6e8;
+    padding:13px 5px;
+    border-radius:5px;
+    text-align:center;
+}
+
+.time strong{
+    display:block;
+    font-family:"Cormorant Garamond",serif;
+    font-size:29px;
+}
+
+.time small{
+    font-size:9px;
+    letter-spacing:1px;
+}
+
+/* KITTEN NOTES */
+
+.kitten-area{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+    margin-top:20px;
+}
+
+.kitten-card{
+    min-height:145px;
+    background:rgba(255,247,230,.72);
+    border:1px solid rgba(112,75,78,.2);
+    border-radius:8px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    transition:.3s;
+    position:relative;
+    overflow:hidden;
+}
+
+.kitten-card:hover{
+    transform:translateY(-5px) rotate(-1deg);
+    box-shadow:0 13px 25px rgba(83,48,54,.16);
+}
+
+.mini-cat{
+    font-size:54px;
+    filter:drop-shadow(0 5px 3px rgba(80,50,50,.1));
+}
+
+.kitten-card span{
+    font-family:"Cormorant Garamond",serif;
+    font-size:18px;
+    margin-top:7px;
+}
+
+/* BUTTONS */
+
+.interactions{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+}
+
+.action{
+    border:0;
+    padding:22px 10px;
+    border-radius:8px;
+    background:#d991a0;
+    color:#fff7e8;
+    font-family:"Cormorant Garamond",serif;
+    font-size:23px;
+    cursor:pointer;
+    box-shadow:0 8px 18px rgba(84,48,54,.15);
+    transition:.2s;
+}
+
+.action:hover{
+    transform:translateY(-3px);
+}
+
+.action:active{
+    transform:scale(.96);
+}
+
+/* POPUP */
+
+.popup{
+    position:fixed;
+    inset:0;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:25px;
+    background:rgba(61,39,43,.48);
+    backdrop-filter:blur(8px);
+    z-index:100;
+}
+
+.popup.show{
+    display:flex;
+    animation:fadeIn .3s ease;
+}
+
+.popup-card{
+    width:min(450px,100%);
+    background:#fff3dc;
+    padding:35px 25px;
+    border-radius:7px;
+    border:2px solid #d0b178;
+    text-align:center;
+    position:relative;
+    box-shadow:0 25px 70px rgba(50,30,35,.35);
+    animation:pop .35s ease;
+}
+
+.popup-card:before{
+    content:"";
+    position:absolute;
+    inset:9px;
+    border:1px solid rgba(190,150,91,.5);
+    pointer-events:none;
+}
+
+.popup-card h3{
+    font-family:"Cormorant Garamond",serif;
+    font-size:38px;
+    margin-bottom:12px;
+}
+
+.popup-card p{
+    font-family:"Cormorant Garamond",serif;
+    font-size:21px;
+    line-height:1.5;
+    position:relative;
+    z-index:2;
+}
+
+.close{
+    margin-top:22px;
+    border:1px solid #b9956a;
+    background:transparent;
+    color:#704b52;
+    padding:9px 22px;
+    border-radius:50px;
+    cursor:pointer;
+}
+
+@keyframes pop{
+    from{transform:scale(.75);opacity:0}
+    to{transform:scale(1);opacity:1}
+}
+
+@keyframes fadeIn{
+    from{opacity:0}
+    to{opacity:1}
+}
+
+/* FLYING HEARTS */
+
+.heart{
+    position:fixed;
+    pointer-events:none;
+    z-index:120;
+    font-size:25px;
+    animation:heartFly 1.8s ease-out forwards;
+}
+
+@keyframes heartFly{
+    0%{transform:translate(-50%,0) scale(.5);opacity:1}
+    100%{transform:translate(calc(-50% + var(--drift)), -230px) scale(1.4);opacity:0}
+}
+
+/* FOOTER */
+
+.footer{
+    text-align:center;
+    color:#fff1df;
+    padding:10px 0 60px;
+    font-family:"Cormorant Garamond",serif;
+    font-size:21px;
+}
+
+.footer .heartline{
+    font-size:25px;
+    letter-spacing:5px;
+    margin-bottom:8px;
+}
+
+/* MUSIC */
+
+.music{
+    position:fixed;
+    right:22px;
+    bottom:22px;
+    width:49px;
+    height:49px;
+    border-radius:50%;
+    border:1px solid rgba(255,243,220,.8);
+    background:rgba(217,145,160,.85);
+    color:#fff3dc;
+    z-index:70;
+    cursor:pointer;
+    box-shadow:0 7px 20px rgba(70,40,45,.2);
+}
+
+/* RESPONSIVE */
+
+@media(max-width:420px){
+    .page{padding:14px}
+    .hero h1{font-size:57px}
+    .card{padding:28px 18px}
+    .letter{font-size:18px}
+    .section-title{font-size:35px}
+}
+</style>
+</head>
+
+<body>
+
+<div class="ornate-border"></div>
+
+<div class="filigree">
+    <span class="f1">❦</span>
+    <span class="f2">❧</span>
+    <span class="f3">❦</span>
+    <span class="f4">❧</span>
+    <span class="f5">❦</span>
+</div>
+
+<div class="page">
+
+<!-- HERO -->
+<section class="hero">
+
+    <div class="small-crown">✦ ❦ ✦</div>
+
+    <h1>
+        Six Months
+        <span>of us ♡</span>
+    </h1>
+
+    <p class="subtitle">
+        six months, countless little moments,<br>
+        and still my favourite person.
+    </p>
+
+    <div class="date-ribbon">
+        07 · 03 · 2026 — 07 · 09 · 2026
+    </div>
+
+    <div class="scroll">SCROLL GENTLY ↓</div>
+</section>
+
+
+<!-- MAIN -->
+<section class="section">
+
+<div class="card">
+
+    <div class="character-box">
+
+        <div class="kitty" onclick="showPopup(
+        'A tiny little flower for you 🌷',
+        'Because if I could give you one thing today, it would be something soft, pretty and a little bit like the way you make my days feel.'
+        )">
+
+            <div class="ear left"></div>
+            <div class="ear right"></div>
+
+            <div class="cat-head">
+                <div class="eye left"></div>
+                <div class="eye right"></div>
+                <div class="nose"></div>
+
+                <div class="whisker w1"></div>
+                <div class="whisker w2"></div>
+                <div class="whisker w3"></div>
+                <div class="whisker w4"></div>
+
+                <div class="bow"><span></span></div>
+            </div>
+
+            <div class="body"></div>
+            <div class="arm left"></div>
+            <div class="arm right"></div>
+
+            <div class="lily">
+                <div class="flower">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <i></i>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <h2 class="section-title">For My Favourite Girl</h2>
+    <p class="section-sub">a little something from my heart ♡</p>
+
+    <div class="letter">
+Today, we’ve officially completed 6 months together, and honestly, I still can’t believe how quickly the time passed from March till now. In these 6 months, we’ve been through so much together. We’ve talked about so many things, made so many memories, laughed so much, been happy together, had misunderstandings, fought, made up, and somehow after every fight, we still found our way back to each other.
+
+I don’t think a relationship is supposed to be happy every single moment. For me, what matters even more is that when things get difficult, we don’t give up on each other. We choose each other, we stay, we talk things out, and we try to make everything okay together.
+
+And somewhere in these 6 months, you stopped being just someone I talk to and became such a huge part of my life. Now whenever something happens in my day, whether it’s something funny, something good, something random or even something bad, my first thought is always to tell you and share it with you. I don’t even remember when it became so normal for me to have you in everything, but now I genuinely can’t imagine my days without you.
+
+And there are so many things about you that make me love you even more. The way you care about me, the way you understand me, the way you love me even when I’m not at my best, it all means more to me than you probably realise.
+
+You put up with my mood swings, my stupid little things, my mistakes, and even when I mess up, you still try to understand me and forgive me. I know I’m not perfect, and sometimes I do things without thinking and end up hurting you, but the fact that you still stay beside me and try to make things better means so much to me.
+
+You haven’t just loved me, you’ve understood me. You’ve made me feel cared for, heard and loved in ways I probably don’t say enough. And honestly, I hope you always know how much that means to me.
+
+I just want you to know that no matter how many times I say I love you, I don’t think those words will ever be enough to explain what you actually mean to me. You’ve become someone I care about so deeply, and I never want you to doubt how important you are to me.
+
+I don’t know what the next months or years are going to look like. I just know that right now, I’m really happy that I have you, and I want to keep choosing you every day. I want us to keep growing together, keep understanding each other, keep laughing at the stupidest things, keep fixing things when they go wrong, and keep making our own little memories.
+
+These six months have been really special to me, and I’m genuinely grateful for every little part of them.
+
+Happy 6 months to us, my love.
+
+I love you so, so much. ♡
+    </div>
+
+    <div class="signature">
+        — yours, always ♡
+    </div>
+
+</div>
+</section>
+
+
+<!-- COUNTDOWN -->
+<section class="section">
+<div class="card">
+
+    <h2 class="section-title">Six Months Together</h2>
+    <p class="section-sub">and the little counter of us...</p>
+
+    <div class="countdown">
+        <div class="time">
+            <strong id="days">000</strong>
+            <small>DAYS</small>
+        </div>
+
+        <div class="time">
+            <strong id="hours">00</strong>
+            <small>HOURS</small>
+        </div>
+
+        <div class="time">
+            <strong id="minutes">00</strong>
+            <small>MINUTES</small>
+        </div>
+    </div>
+
+</div>
+</section>
+
+
+<!-- KITTEN NOTES -->
+<section class="section">
+<div class="card">
+
+    <h2 class="section-title">Tiny Kitten Notes 🐾</h2>
+    <p class="section-sub">tap a little kitten — it has something to tell you</p>
+
+    <div class="kitten-area">
+
+        <div class="kitten-card" onclick="showPopup(
+        'Little reminder ♡',
+        'You are loved. Even on the days when you don’t feel your best, even on the days when everything feels a little too much. Please remember that you are incredibly precious to me.'
+        )">
+            <div class="mini-cat">🐱</div>
+            <span>open me ♡</span>
+        </div>
+
+        <div class="kitten-card" onclick="showPopup(
+        'A tiny confession 🌷',
+        'I still randomly smile when I see your name. Six months later. Apparently my brain has decided that you are its favourite notification.'
+        )">
+            <div class="mini-cat">🎀</div>
+            <span>this one too</span>
+        </div>
+
+        <div class="kitten-card" onclick="showPopup(
+        'For bad days ☁️',
+        'Come here. No fixing everything right now. No overthinking. Just breathe, take it easy and remember that you have someone who cares about you a whole lot.'
+        )">
+            <div class="mini-cat">🐾</div>
+            <span>open softly</span>
+        </div>
+
+        <div class="kitten-card" onclick="showPopup(
+        'One more thing 💗',
+        'If I had to choose my favourite part of these six months, it would probably just be having you in them. That simple.'
+        )">
+            <div class="mini-cat">🌸</div>
+            <span>last one ♡</span>
+        </div>
+
+    </div>
+
+</div>
+</section>
+
+
+<!-- HUG / KISS -->
+<section class="section">
+<div class="card">
+
+    <h2 class="section-title">Come Here ♡</h2>
+    <p class="section-sub">two buttons. very important buttons.</p>
+
+    <div class="interactions">
+
+        <button class="action" onclick="sendHug()">
+            🤗<br>
+            <small>Hug me</small>
+        </button>
+
+        <button class="action" onclick="sendKiss()">
+            💋<br>
+            <small>Kiss me</small>
+        </button>
+
+    </div>
+
+</div>
+</section>
+
+
+<!-- FINAL -->
+<section class="section">
+<div class="card">
+
+    <h2 class="section-title">One Last Little Thing</h2>
+    <p class="section-sub">before you leave...</p>
+
+    <div style="
+        text-align:center;
+        font-family:'Cormorant Garamond',serif;
+        font-size:22px;
+        line-height:1.65;
+        position:relative;
+        z-index:2;
+    ">
+        <p>
+            If these six months were only the beginning,
+            then I really hope we get to fill the next ones
+            with even more laughter, more silly conversations,
+            more “I miss you”s, more annoying each other,
+            more understanding and a whole lot more love.
+        </p>
+
+        <br>
+
+        <p>
+            Thank you for being you.
+            Thank you for loving me.
+            And thank you for choosing us.
+        </p>
+
+        <br>
+
+        <strong style="font-size:27px;">
+            Happy 6 Months, Anu. ♡
+        </strong>
+    </div>
+
+</div>
+</section>
+
+
+<div class="footer">
+    <div class="heartline">♡ ❦ ♡ ❦ ♡</div>
+    made with too much love
+</div>
+
+</div>
+
+
+<!-- POPUP -->
+
+<div class="popup" id="popup">
+
+    <div class="popup-card">
+
+        <h3 id="popupTitle">♡</h3>
+
+        <p id="popupText"></p>
+
+        <button class="close" onclick="closePopup()">
+            okayyy ♡
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- MUSIC BUTTON -->
+
+<button class="music" onclick="toggleMusic()" id="musicBtn">
+    ♪
+</button>
+
+<audio id="music" loop>
+    <!-- Add your own music file here if you want:
+    <source src="music.mp3" type="audio/mpeg">
+    -->
+</audio>
+
+
+<script>
+
+/* =========================
+   PETAL ANIMATION
+========================= */
+
+function createPetal(){
+
+    const petal = document.createElement("div");
+
+    petal.className = "petal";
+
+    petal.style.left = Math.random()*100 + "vw";
+
+    petal.style.setProperty(
+        "--x",
+        (Math.random()*180-90) + "px"
+    );
+
+    petal.style.animationDuration =
+        (5 + Math.random()*6) + "s";
+
+    petal.style.opacity =
+        (.25 + Math.random()*.6);
+
+    document.body.appendChild(petal);
+
+    setTimeout(()=>{
+        petal.remove();
+    },12000);
+}
+
+setInterval(createPetal,850);
+
+
+/* =========================
+   POPUP
+========================= */
+
+function showPopup(title,text){
+
+    document.getElementById("popupTitle").innerText = title;
+
+    document.getElementById("popupText").innerText = text;
+
+    document.getElementById("popup").classList.add("show");
+}
+
+function closePopup(){
+
+    document.getElementById("popup").classList.remove("show");
+}
+
+document.getElementById("popup").addEventListener("click",function(e){
+
+    if(e.target === this){
+        closePopup();
+    }
+
+});
+
+
+/* =========================
+   HEART BURST
+========================= */
+
+function hearts(x,y,count=12){
+
+    const symbols = ["♡","♥","💗","💞","🌸"];
+
+    for(let i=0;i<count;i++){
+
+        const heart = document.createElement("div");
+
+        heart.className="heart";
+
+        heart.innerText =
+            symbols[Math.floor(Math.random()*symbols.length)];
+
+        heart.style.left=x+"px";
+        heart.style.top=y+"px";
+
+        heart.style.setProperty(
+            "--drift",
+            (Math.random()*180-90)+"px"
+        );
+
+        heart.style.animationDuration =
+            (1.2+Math.random()*1)+"s";
+
+        document.body.appendChild(heart);
+
+        setTimeout(()=>{
+            heart.remove();
+        },2200);
+    }
+}
+
+
+/* =========================
+   HUG
+========================= */
+
+function sendHug(){
+
+    const x=window.innerWidth/2;
+    const y=window.innerHeight*.6;
+
+    hearts(x,y,20);
+
+    showPopup(
+        "BIGGEST HUG 🤗",
+        "Come hereee. Consider yourself officially wrapped in the biggest, warmest virtual hug ever. Stay here for a little while. ♡"
+    );
+}
+
+
+/* =========================
+   KISS
+========================= */
+
+function sendKiss(){
+
+    const x=window.innerWidth/2;
+    const y=window.innerHeight*.6;
+
+    hearts(x,y,25);
+
+    showPopup(
+        "MWAHHH 💋",
+        "One tiny virtual kiss for you… okay maybe not tiny. You deserve a whole lot of them. 💋💗"
+    );
+}
+
+
+/* =========================
+   CLICK ANYWHERE SPARKLES
+========================= */
+
+document.addEventListener("click",function(e){
+
+    if(
+        e.target.closest("button") ||
+        e.target.closest(".kitten-card") ||
+        e.target.closest(".kitty")
+    ) return;
+
+    hearts(e.clientX,e.clientY,5);
+
+});
+
+
+/* =========================
+   COUNT UP FROM MARCH 7
+========================= */
+
+function updateCounter(){
+
+    const start =
+        new Date("2026-03-07T00:00:00");
+
+    const now =
+        new Date();
+
+    let diff =
+        now-start;
+
+    if(diff<0) diff=0;
+
+    const days =
+        Math.floor(diff/(1000*60*60*24));
+
+    const hours =
+        Math.floor(
+            (diff/(1000*60*60))%24
+        );
+
+    const minutes =
+        Math.floor(
+            (diff/(1000*60))%60
+        );
+
+    document.getElementById("days").innerText =
+        String(days).padStart(3,"0");
+
+    document.getElementById("hours").innerText =
+        String(hours).padStart(2,"0");
+
+    document.getElementById("minutes").innerText =
+        String(minutes).padStart(2,"0");
+}
+
+updateCounter();
+
+setInterval(updateCounter,30000);
+
+
+/* =========================
+   MUSIC
+========================= */
+
+function toggleMusic(){
+
+    const music =
+        document.getElementById("music");
+
+    const btn =
+        document.getElementById("musicBtn");
+
+    if(!music.src){
+
+        showPopup(
+            "Music 🎵",
+            "Add your favourite song as music.mp3 in the same folder as this index.html, then the little music button will play it."
+        );
+
+        return;
+    }
+
+    if(music.paused){
+
+        music.play();
+
+        btn.innerText="Ⅱ";
+
+    }else{
+
+        music.pause();
+
+        btn.innerText="♪";
+
+    }
+}
+
+
+/* =========================
+   INTRO HEART BURST
+========================= */
+
+setTimeout(()=>{
+
+    hearts(
+        window.innerWidth/2,
+        window.innerHeight*.45,
+        10
+    );
+
+},1000);
+
+</script>
+
+</body>
+</html>
+```
