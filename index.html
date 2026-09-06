@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For Ananta — Six Months ♡</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>For Ananta ♡ Six Months</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,722 +11,827 @@
 
 <style>
 :root{
-  --pink:#d99aa5;
-  --dust:#e8b8bd;
-  --cream:#fff4e8;
-  --paper:#f9e5d8;
-  --wine:#651f32;
-  --deep:#2b101b;
-  --gold:#c99b58;
-  --rose:#b94e68;
-  --shadow:0 25px 70px rgba(67,16,32,.22);
+ --pink:#d995a2;
+ --pink2:#efc3c2;
+ --cream:#fff3e6;
+ --cream2:#f8dfd1;
+ --wine:#641d31;
+ --wine2:#8e3048;
+ --gold:#c69a5a;
+ --brown:#4b2631;
 }
 
 *{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
+ margin:0;
+ padding:0;
+ box-sizing:border-box;
 }
 
 html{
-  scroll-behavior:smooth;
+ scroll-behavior:smooth;
 }
 
 body{
-  background:#d99ba5;
-  color:var(--deep);
-  font-family:"DM Sans",sans-serif;
-  overflow-x:hidden;
+ background:#d999a4;
+ color:var(--brown);
+ font-family:"DM Sans",sans-serif;
+ overflow-x:hidden;
 }
 
-/* =========================
-   ROYAL BACKGROUND
-========================= */
+/* =========================================================
+   MAIN ROYAL BACKGROUND
+========================================================= */
 
 .page{
-  min-height:100vh;
-  position:relative;
-  overflow:hidden;
-  background:
-    radial-gradient(circle at 15% 20%,rgba(255,244,232,.55),transparent 20%),
-    radial-gradient(circle at 85% 70%,rgba(101,31,50,.18),transparent 25%),
-    linear-gradient(135deg,#d895a0,#edc0bd 45%,#c9808d);
+ position:relative;
+ min-height:100vh;
+ overflow:hidden;
+ background:
+ radial-gradient(circle at 20% 10%,rgba(255,255,255,.55),transparent 20%),
+ radial-gradient(circle at 80% 30%,rgba(101,29,49,.12),transparent 25%),
+ radial-gradient(circle at 50% 100%,rgba(255,242,228,.4),transparent 30%),
+ linear-gradient(135deg,#d48c99,#edbdbe 45%,#ce8996);
 }
+
+/* Damask-like moving pattern */
 
 .page:before{
-  content:"";
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  z-index:0;
-  opacity:.25;
-  background-image:
-    repeating-radial-gradient(
-      ellipse at center,
-      transparent 0 22px,
-      rgba(255,244,232,.35) 23px 24px,
-      transparent 25px 48px
-    );
-  background-size:150px 150px;
-  animation:patternMove 35s linear infinite;
+ content:"";
+ position:fixed;
+ inset:-100px;
+ z-index:0;
+ pointer-events:none;
+ opacity:.18;
+ background:
+ radial-gradient(ellipse at center,
+ transparent 0 35px,
+ rgba(255,244,230,.75) 36px 38px,
+ transparent 39px 70px);
+ background-size:140px 140px;
+ transform:rotate(12deg);
+ animation:damask 45s linear infinite;
 }
 
-@keyframes patternMove{
-  from{background-position:0 0}
-  to{background-position:150px 150px}
+@keyframes damask{
+ from{transform:rotate(12deg) translate(0,0)}
+ to{transform:rotate(12deg) translate(140px,140px)}
 }
 
-.ornament{
-  position:absolute;
-  color:rgba(255,244,232,.38);
-  font-family:"Cormorant Garamond",serif;
-  font-size:120px;
-  pointer-events:none;
-  z-index:1;
-  animation:ornamentFloat 8s ease-in-out infinite;
+/* =========================================================
+   BAROQUE ORNAMENTS
+========================================================= */
+
+.orn{
+ position:absolute;
+ z-index:1;
+ color:rgba(255,244,230,.55);
+ font-family:"Cormorant Garamond",serif;
+ pointer-events:none;
+ user-select:none;
 }
 
-.ornament.one{left:-25px;top:110px}
-.ornament.two{right:-25px;top:500px;animation-delay:2s}
-.ornament.three{left:5%;bottom:80px;animation-delay:4s}
-.ornament.four{right:8%;bottom:250px;animation-delay:1s}
-
-@keyframes ornamentFloat{
-  0%,100%{transform:translateY(0) rotate(-3deg)}
-  50%{transform:translateY(-16px) rotate(3deg)}
+.orn.big{
+ font-size:180px;
 }
 
-/* =========================
-   FLOATING PARTICLES
-========================= */
-
-#particles{
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  z-index:4;
-  overflow:hidden;
+.orn.medium{
+ font-size:100px;
 }
 
-.particle{
-  position:absolute;
-  bottom:-40px;
-  font-size:15px;
-  opacity:.7;
-  animation:rise linear forwards;
+.o1{top:50px;left:-35px}
+.o2{top:80px;right:-30px;transform:scaleX(-1)}
+.o3{top:700px;left:-20px;transform:rotate(180deg)}
+.o4{top:900px;right:-20px;transform:scaleX(-1)}
+.o5{top:1450px;left:-30px}
+.o6{top:1700px;right:-30px;transform:scaleX(-1)}
+
+.orn{
+ animation:ornFloat 9s ease-in-out infinite;
 }
 
-@keyframes rise{
-  0%{
-    transform:translate3d(0,0,0) rotate(0);
-    opacity:0;
-  }
-  10%{opacity:.8}
-  90%{opacity:.8}
-  100%{
-    transform:translate3d(var(--drift),-110vh,0) rotate(360deg);
-    opacity:0;
-  }
+.o2{animation-delay:2s}
+.o3{animation-delay:3s}
+.o4{animation-delay:1s}
+
+@keyframes ornFloat{
+ 0%,100%{transform:translateY(0)}
+ 50%{transform:translateY(-15px)}
 }
 
-/* =========================
-   NAV
-========================= */
+/* =========================================================
+   DECORATIVE FLOWERS
+========================================================= */
+
+.bgflower{
+ position:absolute;
+ z-index:1;
+ pointer-events:none;
+ opacity:.8;
+ animation:flowerFloat 7s ease-in-out infinite;
+}
+
+.bgflower span{
+ display:block;
+ font-size:30px;
+ filter:drop-shadow(0 5px 8px rgba(70,15,30,.15));
+}
+
+.f1{left:7%;top:390px}
+.f2{right:7%;top:620px;animation-delay:1s}
+.f3{left:10%;top:1200px;animation-delay:2s}
+.f4{right:12%;top:1400px;animation-delay:3s}
+.f5{left:5%;top:1900px;animation-delay:1s}
+.f6{right:6%;top:2200px;animation-delay:2s}
+
+@keyframes flowerFloat{
+ 0%,100%{transform:translateY(0) rotate(-5deg)}
+ 50%{transform:translateY(-15px) rotate(5deg)}
+}
+
+/* =========================================================
+   BACKGROUND KITTENS
+========================================================= */
+
+.kitty-bg{
+ position:absolute;
+ z-index:3;
+ width:95px;
+ height:100px;
+ pointer-events:none;
+ transition:transform .4s cubic-bezier(.2,.8,.2,1);
+ filter:drop-shadow(0 12px 12px rgba(65,15,30,.16));
+}
+
+.kitty-bg .head{
+ position:absolute;
+ left:12px;
+ top:25px;
+ width:70px;
+ height:62px;
+ background:#fff3e6;
+ border:2px solid #b8797d;
+ border-radius:48% 48% 45% 45%;
+}
+
+.kitty-bg .ear{
+ position:absolute;
+ top:10px;
+ width:28px;
+ height:28px;
+ background:#fff3e6;
+ border:2px solid #b8797d;
+ transform:rotate(45deg);
+ z-index:-1;
+}
+
+.kitty-bg .ear.l{left:17px}
+.kitty-bg .ear.r{right:17px}
+
+.kitty-bg .eye{
+ position:absolute;
+ top:32px;
+ width:7px;
+ height:10px;
+ background:#522332;
+ border-radius:50%;
+}
+
+.kitty-bg .eye.l{left:22px}
+.kitty-bg .eye.r{right:22px}
+
+.kitty-bg .nose{
+ position:absolute;
+ top:45px;
+ left:32px;
+ width:7px;
+ height:5px;
+ border-radius:50%;
+ background:#d06e83;
+}
+
+.kitty-bg .mouth{
+ position:absolute;
+ top:48px;
+ left:33px;
+ width:8px;
+ height:6px;
+ border-bottom:1px solid #6c2b3d;
+ border-radius:50%;
+}
+
+.kitty-bg .bow{
+ position:absolute;
+ right:-4px;
+ top:6px;
+ font-size:26px;
+}
+
+.kitty-bg .flower{
+ position:absolute;
+ left:-8px;
+ top:20px;
+ font-size:22px;
+}
+
+.kitty-bg .heart{
+ position:absolute;
+ right:0;
+ bottom:3px;
+ font-size:18px;
+}
+
+.kb1{left:4%;top:190px;transform:rotate(-7deg)}
+.kb2{right:4%;top:300px;transform:rotate(8deg) scale(.8)}
+.kb3{left:2%;top:720px;transform:rotate(-10deg) scale(.75)}
+.kb4{right:2%;top:850px;transform:rotate(9deg) scale(.9)}
+.kb5{left:5%;top:1150px;transform:rotate(7deg) scale(.8)}
+.kb6{right:5%;top:1280px;transform:rotate(-7deg) scale(.75)}
+.kb7{left:3%;top:1600px;transform:rotate(-5deg) scale(.9)}
+.kb8{right:3%;top:1780px;transform:rotate(8deg) scale(.78)}
+.kb9{left:6%;top:2050px;transform:rotate(-8deg) scale(.75)}
+.kb10{right:6%;top:2150px;transform:rotate(7deg) scale(.85)}
+
+.kitty-bg{
+ animation:kittyFloat 5s ease-in-out infinite;
+}
+
+.kb2{animation-delay:1s}
+.kb3{animation-delay:2s}
+.kb4{animation-delay:3s}
+.kb5{animation-delay:1.5s}
+.kb6{animation-delay:2.5s}
+.kb7{animation-delay:3.5s}
+
+@keyframes kittyFloat{
+ 0%,100%{margin-top:0}
+ 50%{margin-top:-15px}
+}
+
+/* =========================================================
+   FLOATING HEARTS / PETALS
+========================================================= */
+
+#floating{
+ position:fixed;
+ inset:0;
+ z-index:8;
+ pointer-events:none;
+ overflow:hidden;
+}
+
+.float{
+ position:absolute;
+ bottom:-40px;
+ animation:floatUp linear forwards;
+ opacity:.75;
+}
+
+@keyframes floatUp{
+ 0%{
+  transform:translate(0,0) rotate(0);
+  opacity:0;
+ }
+ 12%{opacity:.8}
+ 90%{opacity:.7}
+ 100%{
+  transform:translate(var(--x),-115vh) rotate(360deg);
+  opacity:0;
+ }
+}
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
 
 .nav{
-  position:fixed;
-  top:18px;
-  left:50%;
-  transform:translateX(-50%);
-  z-index:50;
-  display:flex;
-  gap:6px;
-  padding:7px;
-  border:1px solid rgba(255,244,232,.55);
-  border-radius:999px;
-  background:rgba(72,18,34,.68);
-  backdrop-filter:blur(15px);
-  box-shadow:0 15px 35px rgba(60,10,25,.18);
+ position:fixed;
+ top:16px;
+ left:50%;
+ transform:translateX(-50%);
+ z-index:100;
+ padding:7px;
+ display:flex;
+ gap:5px;
+ border:1px solid rgba(255,243,230,.45);
+ background:rgba(74,18,34,.76);
+ backdrop-filter:blur(18px);
+ border-radius:999px;
+ box-shadow:0 15px 40px rgba(50,10,20,.22);
 }
 
 .nav button{
-  border:0;
-  background:transparent;
-  color:#fff5ed;
-  padding:9px 14px;
-  border-radius:999px;
-  cursor:pointer;
-  font-size:12px;
-  transition:.3s ease;
+ border:0;
+ background:transparent;
+ color:#fff3e6;
+ padding:9px 13px;
+ border-radius:999px;
+ cursor:pointer;
+ font-size:11px;
+ transition:.3s;
 }
 
 .nav button:hover{
-  background:#f8ddd4;
-  color:var(--wine);
-  transform:translateY(-2px);
+ background:#ffe7db;
+ color:var(--wine);
+ transform:translateY(-2px);
 }
 
-/* =========================
+/* =========================================================
    HERO
-========================= */
+========================================================= */
 
 .hero{
-  min-height:100vh;
-  position:relative;
-  z-index:2;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:100px 20px 70px;
-  text-align:center;
+ min-height:100vh;
+ position:relative;
+ z-index:10;
+ display:flex;
+ justify-content:center;
+ align-items:center;
+ text-align:center;
+ padding:110px 20px 80px;
 }
 
-.hero-inner{
-  width:min(850px,100%);
-  position:relative;
+.hero-card{
+ width:min(900px,100%);
+ padding:60px 30px;
+ position:relative;
 }
 
-.kicker{
-  letter-spacing:5px;
-  text-transform:uppercase;
-  font-size:11px;
-  color:var(--wine);
-  font-weight:700;
-  margin-bottom:18px;
-  animation:fadeUp 1s ease both;
+.hero-card:before{
+ content:"";
+ position:absolute;
+ inset:15px;
+ border:1px solid rgba(255,244,230,.55);
+ pointer-events:none;
+}
+
+.hero-card:after{
+ content:"";
+ position:absolute;
+ inset:28px;
+ border:1px solid rgba(101,29,49,.2);
+ pointer-events:none;
+}
+
+.hero-kicker{
+ letter-spacing:6px;
+ font-size:11px;
+ text-transform:uppercase;
+ font-weight:700;
+ color:var(--wine);
+ animation:up 1s both;
 }
 
 .hero h1{
-  font-family:"Great Vibes",cursive;
-  font-size:clamp(65px,13vw,145px);
-  line-height:.85;
-  color:#fff4e8;
-  text-shadow:
-    0 3px 0 rgba(101,31,50,.2),
-    0 18px 45px rgba(71,14,31,.22);
-  animation:heroIn 1.4s cubic-bezier(.2,.8,.2,1) both;
+ font-family:"Great Vibes",cursive;
+ color:#fff4e8;
+ font-size:clamp(75px,15vw,155px);
+ line-height:.85;
+ margin:20px 0 10px;
+ text-shadow:0 15px 40px rgba(72,16,30,.25);
+ animation:heroIn 1.3s both;
 }
 
 .hero h2{
-  margin-top:18px;
-  font-family:"Cormorant Garamond",serif;
-  color:var(--wine);
-  font-size:clamp(25px,4vw,42px);
-  font-weight:600;
-  animation:fadeUp 1s .3s ease both;
+ font-family:"Cormorant Garamond",serif;
+ font-size:clamp(25px,5vw,45px);
+ color:var(--wine);
+ animation:up 1s .3s both;
 }
 
-.hero p{
-  max-width:620px;
-  margin:22px auto 30px;
-  color:#542031;
-  font-size:15px;
-  line-height:1.9;
-  animation:fadeUp 1s .5s ease both;
+.hero-description{
+ max-width:620px;
+ margin:22px auto 30px;
+ line-height:1.9;
+ color:#5c2636;
+ font-size:14px;
+ animation:up 1s .5s both;
 }
 
 @keyframes heroIn{
-  from{
-    opacity:0;
-    transform:translateY(35px) scale(.92);
-  }
-  to{
-    opacity:1;
-    transform:none;
-  }
+ from{
+  opacity:0;
+  transform:scale(.85) translateY(30px);
+ }
+ to{
+  opacity:1;
+  transform:none;
+ }
 }
 
-@keyframes fadeUp{
-  from{opacity:0;transform:translateY(20px)}
-  to{opacity:1;transform:none}
+@keyframes up{
+ from{opacity:0;transform:translateY(20px)}
+ to{opacity:1;transform:none}
 }
 
-/* =========================
+/* =========================================================
    BUTTONS
-========================= */
+========================================================= */
 
-.btn-row{
-  display:flex;
-  justify-content:center;
-  gap:12px;
-  flex-wrap:wrap;
+.buttons{
+ display:flex;
+ justify-content:center;
+ gap:12px;
+ flex-wrap:wrap;
 }
 
 .btn{
-  border:1px solid rgba(101,31,50,.3);
-  padding:14px 22px;
-  border-radius:999px;
-  cursor:pointer;
-  font-family:"DM Sans",sans-serif;
-  font-weight:700;
-  transition:.35s ease;
-  background:var(--cream);
-  color:var(--wine);
-  box-shadow:0 10px 25px rgba(72,18,34,.14);
+ border:1px solid rgba(101,29,49,.28);
+ background:#fff3e6;
+ color:var(--wine);
+ padding:14px 23px;
+ border-radius:999px;
+ font-weight:700;
+ cursor:pointer;
+ box-shadow:0 10px 25px rgba(70,15,30,.13);
+ transition:.35s;
 }
 
 .btn:hover{
-  transform:translateY(-4px) scale(1.03);
-  box-shadow:0 18px 35px rgba(72,18,34,.22);
+ transform:translateY(-4px) scale(1.03);
+ box-shadow:0 18px 35px rgba(70,15,30,.2);
 }
 
 .btn.dark{
-  background:var(--wine);
-  color:#fff4e8;
+ background:var(--wine);
+ color:#fff3e6;
 }
 
-.scroll-hint{
-  margin-top:45px;
-  font-size:11px;
-  letter-spacing:3px;
-  text-transform:uppercase;
-  color:#6c2639;
-  animation:bounce 2s infinite;
+.scroll{
+ margin-top:40px;
+ font-size:10px;
+ letter-spacing:4px;
+ text-transform:uppercase;
+ color:#68263a;
+ animation:bounce 2s infinite;
 }
 
 @keyframes bounce{
-  0%,100%{transform:translateY(0)}
-  50%{transform:translateY(8px)}
+ 50%{transform:translateY(8px)}
 }
 
-/* =========================
-   SECTION
-========================= */
+/* =========================================================
+   SECTIONS
+========================================================= */
 
 section{
-  position:relative;
-  z-index:5;
-  padding:100px 20px;
+ position:relative;
+ z-index:10;
+ padding:110px 18px;
 }
 
-.section-inner{
-  width:min(1050px,100%);
-  margin:auto;
+.container{
+ width:min(1050px,100%);
+ margin:auto;
 }
 
-.section-title{
-  text-align:center;
-  margin-bottom:45px;
+.section-heading{
+ text-align:center;
+ margin-bottom:45px;
 }
 
-.section-title small{
-  color:var(--wine);
-  text-transform:uppercase;
-  letter-spacing:4px;
-  font-size:10px;
-  font-weight:700;
+.section-heading small{
+ color:var(--wine);
+ text-transform:uppercase;
+ letter-spacing:4px;
+ font-size:10px;
+ font-weight:700;
 }
 
-.section-title h2{
-  margin-top:8px;
-  font-family:"Cormorant Garamond",serif;
-  font-size:clamp(40px,7vw,70px);
-  color:#fff4e8;
-  font-weight:600;
+.section-heading h2{
+ font-family:"Cormorant Garamond",serif;
+ color:#fff3e6;
+ font-size:clamp(45px,8vw,75px);
+ margin-top:8px;
 }
 
-.section-title p{
-  max-width:570px;
-  margin:10px auto;
-  color:#552032;
-  line-height:1.8;
+.section-heading p{
+ max-width:600px;
+ margin:10px auto;
+ color:#552333;
+ line-height:1.8;
+ font-size:13px;
 }
 
-/* =========================
-   ORNATE CARD
-========================= */
+/* =========================================================
+   ROYAL PAPER
+========================================================= */
 
-.royal-card{
-  position:relative;
-  background:
-    linear-gradient(rgba(255,244,232,.92),rgba(255,236,222,.95));
-  border:1px solid rgba(101,31,50,.28);
-  border-radius:10px;
-  box-shadow:var(--shadow);
-  padding:55px;
+.paper{
+ position:relative;
+ background:
+ linear-gradient(rgba(255,244,232,.96),rgba(250,225,211,.97));
+ border-radius:12px;
+ border:1px solid rgba(101,29,49,.28);
+ box-shadow:0 30px 80px rgba(65,15,30,.22);
 }
 
-.royal-card:before,
-.royal-card:after{
-  content:"";
-  position:absolute;
-  inset:13px;
-  border:1px solid rgba(180,126,75,.45);
-  pointer-events:none;
+.paper:before{
+ content:"";
+ position:absolute;
+ inset:14px;
+ border:1px solid rgba(198,154,90,.5);
+ pointer-events:none;
 }
 
-.royal-card:after{
-  inset:20px;
-  border-color:rgba(101,31,50,.18);
+.paper:after{
+ content:"";
+ position:absolute;
+ inset:23px;
+ border:1px solid rgba(101,29,49,.17);
+ pointer-events:none;
 }
 
-.corner{
-  position:absolute;
-  font-family:"Cormorant Garamond",serif;
-  color:#b88955;
-  font-size:42px;
-  z-index:2;
-}
-
-.c1{top:17px;left:18px}
-.c2{top:17px;right:18px;transform:scaleX(-1)}
-.c3{bottom:17px;left:18px;transform:scaleY(-1)}
-.c4{bottom:17px;right:18px;transform:scale(-1)}
-
-/* =========================
+/* =========================================================
    ANNIVERSARY LETTER
-========================= */
+========================================================= */
 
 .letter{
-  max-width:900px;
-  margin:auto;
+ padding:70px;
 }
 
-.letter-label{
-  text-align:center;
-  color:#8e5260;
-  font-size:12px;
-  letter-spacing:3px;
-  text-transform:uppercase;
-  margin-bottom:25px;
+.letter .deco{
+ position:absolute;
+ font-size:45px;
+ color:var(--gold);
+}
+
+.d1{top:24px;left:28px}
+.d2{top:24px;right:28px;transform:scaleX(-1)}
+.d3{bottom:24px;left:28px;transform:scaleY(-1)}
+.d4{bottom:24px;right:28px;transform:scale(-1)}
+
+.letter-top{
+ text-align:center;
+ color:#95606c;
+ font-size:10px;
+ letter-spacing:4px;
+ text-transform:uppercase;
+ margin-bottom:18px;
 }
 
 .letter h3{
-  text-align:center;
-  font-family:"Great Vibes",cursive;
-  font-size:clamp(45px,7vw,75px);
-  color:var(--wine);
-  margin-bottom:25px;
+ text-align:center;
+ font-family:"Great Vibes",cursive;
+ color:var(--wine);
+ font-size:65px;
+ margin-bottom:25px;
 }
 
-.letter-text{
-  font-family:"Cormorant Garamond",serif;
-  font-size:clamp(18px,2.2vw,22px);
-  line-height:1.75;
-  color:#44202c;
+.letter-content{
+ font-family:"Cormorant Garamond",serif;
+ color:#47222e;
+ font-size:clamp(18px,2.1vw,22px);
+ line-height:1.75;
 }
 
-.letter-text p{
-  margin-bottom:22px;
+.letter-content p{
+ margin-bottom:24px;
 }
 
 .signature{
-  margin-top:35px;
-  text-align:right;
-  font-family:"Great Vibes",cursive;
-  font-size:40px;
-  color:var(--rose);
+ text-align:right;
+ font-family:"Great Vibes",cursive;
+ font-size:42px;
+ color:var(--rose);
+ margin-top:35px;
 }
 
-/* =========================
-   KITTEN GARDEN
-========================= */
+/* =========================================================
+   KITTY LOVE GARDEN
+========================================================= */
 
-.kitten-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px;
+.kitty-grid{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:22px;
 }
 
-.kitten-card{
-  position:relative;
-  min-height:270px;
-  padding:25px;
-  border-radius:25px;
-  background:rgba(255,244,232,.75);
-  border:1px solid rgba(101,31,50,.18);
-  box-shadow:0 18px 40px rgba(77,18,34,.13);
-  cursor:pointer;
-  overflow:hidden;
-  transition:.4s ease;
-  text-align:center;
+.kitty-card{
+ position:relative;
+ min-height:310px;
+ background:rgba(255,243,230,.82);
+ border:1px solid rgba(101,29,49,.2);
+ border-radius:26px;
+ padding:30px 22px;
+ text-align:center;
+ box-shadow:0 22px 50px rgba(66,15,30,.15);
+ overflow:hidden;
+ cursor:pointer;
+ transition:.4s;
 }
 
-.kitten-card:hover{
-  transform:translateY(-10px) rotate(-1deg);
-  box-shadow:0 28px 55px rgba(77,18,34,.2);
+.kitty-card:before{
+ content:"✦  ❦  ✦";
+ position:absolute;
+ top:10px;
+ left:0;
+ width:100%;
+ color:#c89a5a;
+ letter-spacing:10px;
+ opacity:.65;
 }
 
-.kitten{
-  width:110px;
-  height:100px;
-  margin:5px auto 20px;
-  position:relative;
-  animation:kittyFloat 4s ease-in-out infinite;
+.kitty-card:hover{
+ transform:translateY(-12px) rotate(-1deg);
+ box-shadow:0 30px 65px rgba(66,15,30,.23);
 }
 
-.kitten:nth-child(2){
-  animation-delay:1s;
+.kitty-big{
+ width:130px;
+ height:130px;
+ margin:15px auto 15px;
+ position:relative;
+ animation:kittyFloat 4s ease-in-out infinite;
 }
 
-@keyframes kittyFloat{
-  0%,100%{transform:translateY(0)}
-  50%{transform:translateY(-8px)}
+.kitty-big .head{
+ position:absolute;
+ left:23px;
+ top:30px;
+ width:88px;
+ height:78px;
+ background:#fff5ea;
+ border:2px solid #b8797d;
+ border-radius:48%;
 }
 
-.kitty-head{
-  position:absolute;
-  width:82px;
-  height:72px;
-  background:#fff4e8;
-  border-radius:45% 45% 42% 42%;
-  left:14px;
-  top:18px;
-  border:2px solid #c78d83;
+.kitty-big .ear{
+ position:absolute;
+ width:34px;
+ height:34px;
+ background:#fff5ea;
+ border:2px solid #b8797d;
+ transform:rotate(45deg);
+ top:12px;
+ z-index:-1;
 }
 
-.ear{
-  position:absolute;
-  width:28px;
-  height:28px;
-  background:#fff4e8;
-  border:2px solid #c78d83;
-  top:3px;
-  transform:rotate(45deg);
-  z-index:-1;
+.kitty-big .ear.l{left:25px}
+.kitty-big .ear.r{right:25px}
+
+.kitty-big .eye{
+ position:absolute;
+ width:8px;
+ height:12px;
+ background:#542536;
+ border-radius:50%;
+ top:40px;
 }
 
-.ear.left{left:16px}
-.ear.right{right:16px}
+.kitty-big .eye.l{left:29px}
+.kitty-big .eye.r{right:29px}
 
-.eye{
-  position:absolute;
-  width:8px;
-  height:11px;
-  background:#562335;
-  border-radius:50%;
-  top:38px;
+.kitty-big .nose{
+ position:absolute;
+ top:54px;
+ left:41px;
+ width:8px;
+ height:6px;
+ border-radius:50%;
+ background:#d2778c;
 }
 
-.eye.left{left:28px}
-.eye.right{right:28px}
-
-.nose{
-  position:absolute;
-  width:7px;
-  height:5px;
-  background:#d47c8f;
-  border-radius:50%;
-  left:37px;
-  top:52px;
+.kitty-big .bow{
+ position:absolute;
+ right:8px;
+ top:7px;
+ font-size:35px;
 }
 
-.whisker{
-  position:absolute;
-  width:28px;
-  height:1px;
-  background:#9e6b72;
-  top:55px;
+.kitty-card h3{
+ font-family:"Cormorant Garamond",serif;
+ color:var(--wine);
+ font-size:30px;
 }
 
-.w1{left:0;transform:rotate(8deg)}
-.w2{right:0;transform:rotate(-8deg)}
-
-.bow{
-  position:absolute;
-  right:-2px;
-  top:0;
-  font-size:31px;
-  transform:rotate(-15deg);
+.kitty-card p{
+ color:#714150;
+ font-size:12px;
+ margin-top:7px;
 }
 
-.kitten-card h3{
-  font-family:"Cormorant Garamond",serif;
-  font-size:26px;
-  color:var(--wine);
-}
-
-.kitten-card p{
-  margin-top:8px;
-  font-size:12px;
-  color:#704250;
-}
-
-/* =========================
-   LOVE NOTE MODAL
-========================= */
-
-.modal{
-  position:fixed;
-  inset:0;
-  z-index:100;
-  background:rgba(39,8,19,.72);
-  backdrop-filter:blur(10px);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:20px;
-  opacity:0;
-  pointer-events:none;
-  transition:.35s ease;
-}
-
-.modal.active{
-  opacity:1;
-  pointer-events:auto;
-}
-
-.note-box{
-  width:min(600px,100%);
-  position:relative;
-  padding:50px 35px;
-  background:#fff0e4;
-  border-radius:14px;
-  border:1px solid #c99b58;
-  box-shadow:0 30px 100px rgba(0,0,0,.35);
-  text-align:center;
-  transform:translateY(25px) scale(.95);
-  transition:.4s ease;
-}
-
-.modal.active .note-box{
-  transform:none;
-}
-
-.note-box h3{
-  font-family:"Great Vibes",cursive;
-  font-size:55px;
-  color:var(--wine);
-}
-
-.note-box p{
-  margin:20px auto 25px;
-  max-width:470px;
-  font-family:"Cormorant Garamond",serif;
-  font-size:21px;
-  line-height:1.65;
-  color:#4d2632;
-}
-
-.close{
-  position:absolute;
-  right:16px;
-  top:12px;
-  border:0;
-  background:none;
-  font-size:28px;
-  cursor:pointer;
-  color:var(--wine);
-}
-
-/* =========================
-   HUG / KISS
-========================= */
+/* =========================================================
+   ACTION CARDS
+========================================================= */
 
 .action-grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:25px;
-  max-width:750px;
-  margin:auto;
+ display:grid;
+ grid-template-columns:repeat(2,1fr);
+ gap:25px;
+ max-width:800px;
+ margin:auto;
 }
 
-.action-card{
-  background:rgba(255,244,232,.78);
-  padding:40px 25px;
-  text-align:center;
-  border-radius:25px;
-  border:1px solid rgba(101,31,50,.18);
-  box-shadow:0 20px 45px rgba(77,18,34,.13);
+.action{
+ background:rgba(255,243,230,.83);
+ border:1px solid rgba(101,29,49,.2);
+ border-radius:28px;
+ padding:45px 25px;
+ text-align:center;
+ box-shadow:0 25px 55px rgba(65,15,30,.15);
 }
 
 .action-icon{
-  font-size:65px;
-  display:block;
-  margin-bottom:15px;
-  transition:.3s ease;
+ font-size:75px;
+ display:block;
+ margin-bottom:15px;
+ animation:iconFloat 3s ease-in-out infinite;
 }
 
-.action-card:hover .action-icon{
-  transform:scale(1.15) rotate(-5deg);
+@keyframes iconFloat{
+ 50%{transform:translateY(-8px) rotate(-4deg)}
 }
 
-.action-card h3{
-  font-family:"Cormorant Garamond",serif;
-  color:var(--wine);
-  font-size:32px;
-  margin-bottom:10px;
+.action h3{
+ font-family:"Cormorant Garamond",serif;
+ color:var(--wine);
+ font-size:35px;
 }
 
-.action-card p{
-  color:#714250;
-  font-size:13px;
-  margin-bottom:20px;
+.action p{
+ margin:10px auto 22px;
+ max-width:300px;
+ color:#714150;
+ line-height:1.7;
+ font-size:12px;
 }
 
-/* =========================
+/* =========================================================
    LOVE METER
-========================= */
+========================================================= */
 
-.meter-box{
-  max-width:700px;
-  margin:auto;
-  text-align:center;
-}
-
-.meter{
-  height:18px;
-  background:#efd0d0;
-  border-radius:999px;
-  overflow:hidden;
-  margin:25px 0;
-  border:1px solid rgba(101,31,50,.15);
-}
-
-.meter-fill{
-  width:0%;
-  height:100%;
-  border-radius:inherit;
-  background:linear-gradient(90deg,#9d405a,#e58a9b,#c99b58);
-  transition:1.5s cubic-bezier(.2,.8,.2,1);
+.meter-card{
+ max-width:800px;
+ margin:auto;
+ padding:55px 35px;
+ text-align:center;
 }
 
 .meter-number{
-  font-family:"Great Vibes",cursive;
-  font-size:55px;
-  color:var(--wine);
+ font-family:"Great Vibes",cursive;
+ color:var(--wine);
+ font-size:65px;
 }
 
-/* =========================
-   FLOWER SECTION
-========================= */
+.meter{
+ height:20px;
+ background:#ebcaca;
+ border-radius:999px;
+ margin:25px 0;
+ padding:3px;
+}
+
+.fill{
+ height:100%;
+ width:0%;
+ border-radius:999px;
+ background:linear-gradient(90deg,#8d2e49,#df7189,#c99a59);
+ transition:2s cubic-bezier(.2,.8,.2,1);
+}
+
+/* =========================================================
+   FLOWER
+========================================================= */
 
 .flower-stage{
-  min-height:310px;
-  position:relative;
-  overflow:hidden;
-  border-radius:30px;
-  background:rgba(71,15,30,.8);
-  border:1px solid rgba(255,244,232,.25);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  flex-direction:column;
+ min-height:360px;
+ border-radius:30px;
+ background:
+ radial-gradient(circle at center,rgba(255,192,207,.15),transparent 35%),
+ rgba(65,15,30,.88);
+ border:1px solid rgba(255,244,230,.25);
+ display:flex;
+ flex-direction:column;
+ align-items:center;
+ justify-content:center;
+ text-align:center;
+ box-shadow:0 30px 70px rgba(60,10,25,.25);
 }
 
 .flower{
-  width:90px;
-  height:90px;
-  position:relative;
-  transform:scale(.2);
-  opacity:.3;
-  transition:1.2s ease;
+ width:120px;
+ height:120px;
+ position:relative;
+ transform:scale(.2);
+ opacity:.3;
+ transition:1.3s;
 }
 
 .flower.bloom{
-  transform:scale(1);
-  opacity:1;
+ transform:scale(1);
+ opacity:1;
 }
 
 .petal{
-  width:45px;
-  height:65px;
-  position:absolute;
-  left:22px;
-  top:8px;
-  background:linear-gradient(#f8c6d0,#c95f79);
-  border-radius:50% 50% 45% 45%;
-  transform-origin:50% 85%;
+ position:absolute;
+ left:37px;
+ top:8px;
+ width:45px;
+ height:72px;
+ border-radius:50%;
+ background:linear-gradient(#ffd0d9,#bd526e);
+ transform-origin:50% 88%;
 }
 
 .petal:nth-child(1){transform:rotate(0)}
@@ -736,1072 +841,1413 @@ section{
 .petal:nth-child(5){transform:rotate(240deg)}
 .petal:nth-child(6){transform:rotate(300deg)}
 
-.flower-center{
-  position:absolute;
-  width:30px;
-  height:30px;
-  background:#e8bd67;
-  border-radius:50%;
-  left:30px;
-  top:32px;
-  z-index:2;
+.center{
+ position:absolute;
+ left:45px;
+ top:45px;
+ width:30px;
+ height:30px;
+ border-radius:50%;
+ background:#e9be67;
+ z-index:3;
 }
 
 .flower-stage h3{
-  color:#fff4e8;
-  font-family:"Cormorant Garamond",serif;
-  font-size:30px;
-  margin-top:20px;
+ margin-top:15px;
+ color:#fff3e6;
+ font-family:"Cormorant Garamond",serif;
+ font-size:32px;
 }
 
 .flower-stage p{
-  color:#e9cbd0;
-  font-size:12px;
-  margin:8px 0 20px;
+ color:#e8cbd0;
+ font-size:12px;
+ margin:7px 0 20px;
 }
 
-/* =========================
+/* =========================================================
    SECRET
-========================= */
+========================================================= */
 
-.secret{
-  max-width:800px;
-  margin:auto;
-  text-align:center;
+.secret-box{
+ text-align:center;
+ max-width:700px;
+ margin:auto;
 }
 
 .envelope{
-  width:190px;
-  height:125px;
-  margin:30px auto;
-  position:relative;
-  cursor:pointer;
-  transition:.5s ease;
+ width:210px;
+ height:140px;
+ margin:35px auto;
+ position:relative;
+ cursor:pointer;
+ transition:.4s;
 }
 
 .envelope:hover{
-  transform:translateY(-8px) rotate(-2deg);
+ transform:translateY(-8px) rotate(-2deg);
 }
 
 .env-body{
-  position:absolute;
-  inset:0;
-  background:#f4c5bd;
-  border:2px solid #9e5364;
-  border-radius:8px;
+ position:absolute;
+ inset:0;
+ background:#f2c4bd;
+ border:2px solid #9d5062;
+ border-radius:9px;
 }
 
 .env-flap{
-  position:absolute;
-  left:0;
-  top:0;
-  width:0;
-  height:0;
-  border-left:94px solid transparent;
-  border-right:94px solid transparent;
-  border-top:67px solid #df9ea4;
-  transform-origin:top;
-  transition:.6s ease;
-  z-index:3;
+ position:absolute;
+ left:0;
+ top:0;
+ width:0;
+ height:0;
+ border-left:105px solid transparent;
+ border-right:105px solid transparent;
+ border-top:75px solid #dc969e;
+ transform-origin:top;
+ transition:.7s;
+ z-index:3;
 }
 
 .envelope.open .env-flap{
-  transform:rotateX(180deg);
+ transform:rotateX(180deg);
 }
 
 .env-heart{
-  position:absolute;
-  left:50%;
-  top:48%;
-  transform:translate(-50%,-50%);
-  font-size:35px;
-  z-index:4;
+ position:absolute;
+ left:50%;
+ top:50%;
+ transform:translate(-50%,-50%);
+ font-size:42px;
+ z-index:4;
 }
 
-/* =========================
-   FOOTER
-========================= */
+/* =========================================================
+   MODAL
+========================================================= */
 
-footer{
-  position:relative;
-  z-index:5;
-  text-align:center;
-  padding:80px 20px 100px;
-  color:#fff0e6;
+.modal{
+ position:fixed;
+ inset:0;
+ z-index:200;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ padding:20px;
+ background:rgba(43,8,20,.72);
+ backdrop-filter:blur(12px);
+ opacity:0;
+ pointer-events:none;
+ transition:.4s;
 }
 
-footer .big{
-  font-family:"Great Vibes",cursive;
-  font-size:60px;
+.modal.show{
+ opacity:1;
+ pointer-events:auto;
 }
 
-footer p{
-  margin-top:10px;
-  color:#f2d6d3;
-  font-size:13px;
+.modal-card{
+ position:relative;
+ width:min(620px,100%);
+ padding:55px 35px;
+ background:#fff0e3;
+ border:1px solid var(--gold);
+ border-radius:15px;
+ text-align:center;
+ box-shadow:0 40px 100px rgba(0,0,0,.4);
+ transform:translateY(30px) scale(.95);
+ transition:.45s;
 }
 
-/* =========================
+.modal.show .modal-card{
+ transform:none;
+}
+
+.modal-card h3{
+ font-family:"Great Vibes",cursive;
+ color:var(--wine);
+ font-size:60px;
+}
+
+.modal-card p{
+ font-family:"Cormorant Garamond",serif;
+ font-size:22px;
+ line-height:1.65;
+ margin:18px auto 25px;
+ color:#4c2632;
+}
+
+.close{
+ position:absolute;
+ right:15px;
+ top:10px;
+ border:0;
+ background:none;
+ font-size:28px;
+ color:var(--wine);
+ cursor:pointer;
+}
+
+/* =========================================================
    EFFECTS
-========================= */
+========================================================= */
 
 .spark{
-  position:fixed;
-  pointer-events:none;
-  z-index:200;
-  font-size:20px;
-  animation:spark .9s ease forwards;
+ position:fixed;
+ z-index:300;
+ pointer-events:none;
+ font-size:20px;
+ animation:spark .9s forwards;
 }
 
 @keyframes spark{
-  0%{
-    opacity:1;
-    transform:translate(-50%,-50%) scale(.5);
-  }
-  100%{
-    opacity:0;
-    transform:translate(
-      calc(-50% + var(--x)),
-      calc(-50% + var(--y))
-    ) scale(1.3) rotate(25deg);
-  }
+ from{
+  opacity:1;
+  transform:translate(-50%,-50%) scale(.5);
+ }
+ to{
+  opacity:0;
+  transform:
+   translate(
+    calc(-50% + var(--x)),
+    calc(-50% + var(--y))
+   )
+   scale(1.4)
+   rotate(30deg);
+ }
 }
 
 .hug-overlay,
 .kiss-overlay{
-  position:fixed;
-  inset:0;
-  z-index:150;
-  pointer-events:none;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  opacity:0;
+ position:fixed;
+ inset:0;
+ z-index:250;
+ pointer-events:none;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ opacity:0;
 }
 
-.hug-overlay.show,
-.kiss-overlay.show{
-  animation:overlay .9s ease forwards;
+.hug-overlay.show{
+ animation:overlay 1s forwards;
 }
 
-.big-hug{
-  font-size:clamp(90px,25vw,230px);
-  animation:hug .9s ease;
+.hug{
+ font-size:clamp(100px,25vw,250px);
+ animation:hug .9s;
 }
 
 @keyframes hug{
-  0%{transform:scale(.4)}
-  55%{transform:scale(1.15)}
-  100%{transform:scale(1)}
-}
-
-.kiss-heart{
-  position:absolute;
-  font-size:30px;
-  animation:kiss 1.6s ease forwards;
-}
-
-@keyframes kiss{
-  from{
-    transform:translateY(0) scale(.4);
-    opacity:0;
-  }
-  20%{opacity:1}
-  to{
-    transform:translateY(-65vh) translateX(var(--move)) scale(1.5) rotate(20deg);
-    opacity:0;
-  }
+ 0%{transform:scale(.4)}
+ 55%{transform:scale(1.2)}
+ 100%{transform:scale(1)}
 }
 
 @keyframes overlay{
-  0%{opacity:0}
-  20%{opacity:1}
-  75%{opacity:1}
-  100%{opacity:0}
+ 0%{opacity:0}
+ 20%{opacity:1}
+ 75%{opacity:1}
+ 100%{opacity:0}
 }
 
-/* =========================
-   SCROLL REVEAL
-========================= */
+.kiss-overlay.show{
+ animation:overlay 1.8s forwards;
+}
+
+.kiss{
+ position:absolute;
+ font-size:32px;
+ bottom:10%;
+ animation:kiss 1.7s forwards;
+}
+
+@keyframes kiss{
+ from{
+  opacity:0;
+  transform:translateY(0) scale(.3);
+ }
+ 15%{opacity:1}
+ to{
+  opacity:0;
+  transform:
+   translate(var(--move),-75vh)
+   scale(1.5)
+   rotate(25deg);
+ }
+}
+
+/* =========================================================
+   REVEAL
+========================================================= */
 
 .reveal{
-  opacity:0;
-  transform:translateY(35px);
-  transition:1s ease;
+ opacity:0;
+ transform:translateY(40px);
+ transition:1s ease;
 }
 
 .reveal.visible{
-  opacity:1;
-  transform:none;
+ opacity:1;
+ transform:none;
 }
 
-/* =========================
-   RESPONSIVE
-========================= */
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+ position:relative;
+ z-index:10;
+ text-align:center;
+ padding:100px 20px 130px;
+ color:#fff3e6;
+}
+
+.footer-script{
+ font-family:"Great Vibes",cursive;
+ font-size:clamp(50px,9vw,90px);
+}
+
+footer p{
+ color:#f1d6d2;
+ margin-top:10px;
+ font-size:12px;
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
 
 @media(max-width:760px){
-  .nav{
-    width:calc(100% - 25px);
-    justify-content:center;
-  }
 
-  .nav button{
-    padding:8px 9px;
-    font-size:10px;
-  }
+ .nav{
+  width:calc(100% - 20px);
+  justify-content:center;
+ }
 
-  .royal-card{
-    padding:38px 24px;
-  }
+ .nav button{
+  padding:8px 8px;
+  font-size:9px;
+ }
 
-  .kitten-grid{
-    grid-template-columns:1fr;
-  }
+ .kitty-grid{
+  grid-template-columns:1fr;
+ }
 
-  .action-grid{
-    grid-template-columns:1fr;
-  }
+ .action-grid{
+  grid-template-columns:1fr;
+ }
 
-  section{
-    padding:75px 15px;
-  }
+ .letter{
+  padding:55px 30px;
+ }
 
-  .hero{
-    padding-top:100px;
-  }
+ .letter-content{
+  font-size:19px;
+ }
 
-  .ornament{
-    font-size:75px;
-  }
-}
+ .kitty-bg{
+  opacity:.7;
+ }
 
-@media(prefers-reduced-motion:reduce){
-  *,
-  *::before,
-  *::after{
-    animation-duration:.01ms !important;
-    animation-iteration-count:1 !important;
-    scroll-behavior:auto !important;
-    transition-duration:.01ms !important;
-  }
+ .kb1,.kb3,.kb5,.kb7,.kb9{
+  left:-12px;
+ }
+
+ .kb2,.kb4,.kb6,.kb8,.kb10{
+  right:-12px;
+ }
+
+ section{
+  padding:80px 14px;
+ }
+
+ .orn.big{
+  font-size:100px;
+ }
 }
 </style>
 </head>
+
 
 <body>
 
 <div class="page">
 
-  <div class="ornament one">❧</div>
-  <div class="ornament two">❦</div>
-  <div class="ornament three">❧</div>
-  <div class="ornament four">❦</div>
-
-  <div id="particles"></div>
-
-  <!-- NAV -->
-  <nav class="nav">
-    <button onclick="goTo('home')">Home</button>
-    <button onclick="goTo('letter')">Letter</button>
-    <button onclick="goTo('kittens')">Kittens</button>
-    <button onclick="goTo('love')">Love</button>
-    <button onclick="goTo('secret')">Secret</button>
-  </nav>
-
-  <!-- HERO -->
-  <main id="home" class="hero">
-    <div class="hero-inner">
-
-      <div class="kicker">September 7 · 2026</div>
-
-      <h1>Six Months</h1>
-
-      <h2>for my favourite person ♡</h2>
-
-      <p>
-        A tiny little royal corner of the internet,
-        made for someone who deserves a whole lot of love.
-      </p>
-
-      <div class="btn-row">
-        <button class="btn dark" onclick="goTo('letter')">
-          Open My Heart ♡
-        </button>
-
-        <button class="btn" onclick="sparkleBurst(event)">
-          Make It Sparkle ✦
-        </button>
-      </div>
-
-      <div class="scroll-hint">
-        ↓ there's more for you
-      </div>
-
-    </div>
-  </main>
-
-
-  <!-- ANNIVERSARY LETTER -->
-  <section id="letter">
-    <div class="section-inner reveal">
-
-      <div class="section-title">
-        <small>the part that matters most</small>
-        <h2>A Letter For You</h2>
-      </div>
-
-      <div class="royal-card letter">
-
-        <span class="corner c1">❦</span>
-        <span class="corner c2">❦</span>
-        <span class="corner c3">❦</span>
-        <span class="corner c4">❦</span>
-
-        <div class="letter-label">
-          six months · september 7
-        </div>
-
-        <h3>My Love,</h3>
-
-        <div class="letter-text">
-
-          <p>
-            Six months with you, and somehow, “six months” feels too small
-            for everything you mean to me.
-          </p>
-
-          <p>
-            There is something so quietly beautiful about having you in my
-            life. You have become a part of my days in the most effortless
-            way — not something I ever had to force, but something that simply
-            found its place in my heart and stayed there.
-          </p>
-
-          <p>
-            I love you in the softest ways. In the way I think of you when
-            I see something you'd like. In the way your name can make an
-            ordinary moment feel a little warmer. In the way I can be
-            completely myself around you and still feel understood.
-            And maybe that's what I love most — you never had to be anything
-            more than yourself for me to fall for you this deeply.
-          </p>
-
-          <p>
-            If I could put what you mean to me into one feeling, it would be
-            the feeling of home — not a place, but a person. A person whose
-            presence makes the world feel a little gentler, whose voice feels
-            familiar, and whose existence alone can make a day feel better.
-          </p>
-
-          <p>
-            I don't think love is always supposed to be loud. Sometimes it's
-            simply knowing that there's one person you want to tell everything
-            to. One person whose happiness genuinely matters to you. One
-            person you look at and quietly think,
-            “I'm really lucky that it's you.”
-          </p>
-
-          <p>
-            And that's exactly how I feel about you.
-          </p>
-
-          <p>
-            I hope you always know how deeply you are loved, how beautifully
-            you are appreciated, and how special your place in my heart is.
-            Not because of anything you do, not because you have to be
-            perfect, but simply because you are you.
-          </p>
-
-          <p>
-            Six months, my love. And if there's one thing I know for sure,
-            it's that I would still choose you in every version of this story.
-          </p>
-
-          <p>
-            Happy six months. ❤️
-          </p>
-
-          <p>
-            You are, and will always be, one of the most beautiful parts
-            of my life.
-          </p>
-
-          <p>
-            I love you. More quietly than words can explain,
-            and more deeply than words ever could.
-          </p>
-
-        </div>
-
-        <div class="signature">
-          yours, always ♡
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- KITTEN GARDEN -->
-  <section id="kittens">
-    <div class="section-inner reveal">
-
-      <div class="section-title">
-        <small>tiny things for you</small>
-        <h2>Kitten Garden 🐾</h2>
-        <p>
-          Every little kitten has a tiny note hidden inside.
-          Tap them. Don't be shy. ♡
-        </p>
-      </div>
-
-      <div class="kitten-grid">
-
-        <div class="kitten-card" onclick="openNote(0)">
-          <div class="kitten">
-            <div class="ear left"></div>
-            <div class="ear right"></div>
-            <div class="kitty-head">
-              <div class="eye left"></div>
-              <div class="eye right"></div>
-              <div class="nose"></div>
-              <div class="whisker w1"></div>
-              <div class="whisker w2"></div>
-            </div>
-            <div class="bow">🎀</div>
-          </div>
-          <h3>For You</h3>
-          <p>tap the little kitten ♡</p>
-        </div>
-
-        <div class="kitten-card" onclick="openNote(1)">
-          <div class="kitten">
-            <div class="ear left"></div>
-            <div class="ear right"></div>
-            <div class="kitty-head">
-              <div class="eye left"></div>
-              <div class="eye right"></div>
-              <div class="nose"></div>
-              <div class="whisker w1"></div>
-              <div class="whisker w2"></div>
-            </div>
-            <div class="bow">🌸</div>
-          </div>
-          <h3>Another One</h3>
-          <p>there's something sweet inside</p>
-        </div>
-
-        <div class="kitten-card" onclick="openNote(2)">
-          <div class="kitten">
-            <div class="ear left"></div>
-            <div class="ear right"></div>
-            <div class="kitty-head">
-              <div class="eye left"></div>
-              <div class="eye right"></div>
-              <div class="nose"></div>
-              <div class="whisker w1"></div>
-              <div class="whisker w2"></div>
-            </div>
-            <div class="bow">🌷</div>
-          </div>
-          <h3>One More</h3>
-          <p>because one note wasn't enough</p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- LOVE NOTES -->
-  <section id="love">
-    <div class="section-inner reveal">
-
-      <div class="section-title">
-        <small>little interactions</small>
-        <h2>Just Because I Love You</h2>
-      </div>
-
-      <div class="action-grid">
-
-        <div class="action-card">
-          <span class="action-icon">🫂</span>
-          <h3>Need a Hug?</h3>
-          <p>
-            This button is scientifically proven to contain
-            an unreasonable amount of affection.
-          </p>
-          <button class="btn dark" onclick="giveHug()">
-            Send Me A Hug
-          </button>
-        </div>
-
-        <div class="action-card">
-          <span class="action-icon">💋</span>
-          <h3>A Little Kiss</h3>
-          <p>
-            Tap once and let the screen become unnecessarily cute.
-          </p>
-          <button class="btn dark" onclick="giveKiss()">
-            Send A Kiss
-          </button>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- LOVE METER -->
-  <section>
-    <div class="section-inner reveal">
-
-      <div class="section-title">
-        <small>completely accurate science</small>
-        <h2>The Love Meter</h2>
-        <p>
-          Warning: the meter may run out of numbers.
-        </p>
-      </div>
-
-      <div class="royal-card meter-box">
-
-        <div class="meter-number" id="meterNumber">0%</div>
-
-        <div class="meter">
-          <div class="meter-fill" id="meterFill"></div>
-        </div>
-
-        <button class="btn dark" onclick="fillLove()">
-          Measure My Love ♡
-        </button>
-
-        <p style="margin-top:20px;color:#704250;font-size:13px">
-          Don't worry. I already know the answer.
-        </p>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- FLOWER -->
-  <section>
-    <div class="section-inner reveal">
-
-      <div class="section-title">
-        <small>a tiny garden for you</small>
-        <h2>Make A Flower Bloom 🌷</h2>
-      </div>
-
-      <div class="flower-stage">
-
-        <div class="flower" id="flower">
-          <div class="petal"></div>
-          <div class="petal"></div>
-          <div class="petal"></div>
-          <div class="petal"></div>
-          <div class="petal"></div>
-          <div class="petal"></div>
-          <div class="flower-center"></div>
-        </div>
-
-        <h3>For the prettiest person</h3>
-
-        <p>
-          press the button and let the little flower bloom
-        </p>
-
-        <button class="btn" onclick="bloomFlower()">
-          Let It Bloom ✦
-        </button>
-
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- SECRET -->
-  <section id="secret">
-    <div class="section-inner reveal">
-
-      <div class="section-title">
-        <small>one last little thing</small>
-        <h2>A Secret Envelope</h2>
-        <p>
-          There is absolutely no reason for this envelope to be this dramatic.
-          But it is.
-        </p>
-      </div>
-
-      <div class="secret">
-
-        <div class="envelope" id="envelope" onclick="openSecret()">
-          <div class="env-body"></div>
-          <div class="env-flap"></div>
-          <div class="env-heart">❤️</div>
-        </div>
-
-        <button class="btn dark" onclick="openSecret()">
-          Open The Secret ♡
-        </button>
-
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- FINAL -->
-  <footer>
-
-    <div class="big">Happy Six Months, Ananta ♡</div>
-
-    <p>
-      Made with an unreasonable amount of love.
-    </p>
-
-    <div style="margin-top:30px">
-      <button class="btn" onclick="goTo('home')">
-        Back To The Beginning ↑
-      </button>
-    </div>
-
-  </footer>
-
+<!-- =====================================================
+     BAROQUE DECOR
+===================================================== -->
+
+<div class="orn big o1">❦</div>
+<div class="orn big o2">❧</div>
+<div class="orn medium o3">❦</div>
+<div class="orn medium o4">❧</div>
+<div class="orn big o5">❦</div>
+<div class="orn big o6">❧</div>
+
+
+<!-- BACKGROUND FLOWERS -->
+
+<div class="bgflower f1"><span>🌸</span></div>
+<div class="bgflower f2"><span>🌷</span></div>
+<div class="bgflower f3"><span>🌹</span></div>
+<div class="bgflower f4"><span>🌸</span></div>
+<div class="bgflower f5"><span>🌷</span></div>
+<div class="bgflower f6"><span>🌹</span></div>
+
+
+<!-- =====================================================
+     BACKGROUND KITTENS
+===================================================== -->
+
+<div class="kitty-bg kb1">
+ <div class="head">
+  <div class="ear l"></div>
+  <div class="ear r"></div>
+  <div class="eye l"></div>
+  <div class="eye r"></div>
+  <div class="nose"></div>
+  <div class="mouth"></div>
+ </div>
+ <div class="bow">🎀</div>
+ <div class="heart">♡</div>
+</div>
+
+<div class="kitty-bg kb2">
+ <div class="head">
+  <div class="ear l"></div>
+  <div class="ear r"></div>
+  <div class="eye l"></div>
+  <div class="eye r"></div>
+  <div class="nose"></div>
+  <div class="mouth"></div>
+ </div>
+ <div class="bow">🌸</div>
+ <div class="flower">🌷</div>
+</div>
+
+<div class="kitty-bg kb3">
+ <div class="head">
+  <div class="ear l"></div>
+  <div class="ear r"></div>
+  <div class="eye l"></div>
+  <div class="eye r"></div>
+  <div class="nose"></div>
+  <div class="mouth"></div>
+ </div>
+ <div class="bow">🎀</div>
+ <div class="heart">♥</div>
+</div>
+
+<div class="kitty-bg kb4">
+ <div class="head">
+  <div class="ear l"></div>
+  <div class="ear r"></div>
+  <div class="eye l"></div>
+  <div class="eye r"></div>
+  <div class="nose"></div>
+  <div class="mouth"></div>
+ </div>
+ <div class="bow">🌹</div>
+</div>
+
+<div class="kitty-bg kb5">
+ <div class="head">
+  <div class="ear l"></div>
+  <div class="ear r"></div>
+  <div class="eye l"></div>
+  <div class="eye r"></div>
+  <div class="nose"></div>
+  <div class="mouth"></div>
+ </div>
+ <div class="bow">🎀</div>
+ <div class="flower">🌸</div>
+</div>
+
+<div class="kitty-bg kb6">
+ <div class="head">
+  <div class="ear l"></div>
+  <div class="ear r"></div>
+  <div class="eye l"></div>
+  <div class="eye r"></div>
+  <div class="nose"></div>
+  <div class="mouth"></div>
+ </div>
+ <div class="bow">💗</div>
+</div>
+
+<div class="kitty-bg kb7">
+ <div class="head">
+  <div class="ear l"></div>
+  <div class="ear r"></div>
+  <div class="eye l"></div>
+  <div class="eye r"></div>
+  <div class="nose"></div>
+  <div class="mouth"></div>
+ </div>
+ <div class="bow">🌸</div>
+ <div class="heart">♡</div>
+</div>
+
+<div class="kitty-bg kb8">
+ <div class="head">
+  <div class="ear l"></div>
+  <div class="ear r"></div>
+  <div class="eye l"></div>
+  <div class="eye r"></div>
+  <div class="nose"></div>
+  <div class="mouth"></div>
+ </div>
+ <div class="bow">🎀</div>
+</div>
+
+<div class="kitty-bg kb9">
+ <div class="head">
+  <div class="ear l"></div>
+  <div class="ear r"></div>
+  <div class="eye l"></div>
+  <div class="eye r"></div>
+  <div class="nose"></div>
+  <div class="mouth"></div>
+ </div>
+ <div class="bow">🌷</div>
+</div>
+
+<div class="kitty-bg kb10">
+ <div class="head">
+  <div class="ear l"></div>
+  <div class="ear r"></div>
+  <div class="eye l"></div>
+  <div class="eye r"></div>
+  <div class="nose"></div>
+  <div class="mouth"></div>
+ </div>
+ <div class="bow">💗</div>
+ <div class="heart">♡</div>
 </div>
 
 
-<!-- NOTE MODAL -->
-<div class="modal" id="noteModal">
-  <div class="note-box">
+<div id="floating"></div>
 
-    <button class="close" onclick="closeNote()">×</button>
 
-    <h3 id="noteTitle">For You ♡</h3>
+<!-- =====================================================
+     NAV
+===================================================== -->
 
-    <p id="noteText"></p>
+<nav class="nav">
+ <button onclick="scrollToId('home')">Home</button>
+ <button onclick="scrollToId('letter')">Letter</button>
+ <button onclick="scrollToId('kittens')">Kittens</button>
+ <button onclick="scrollToId('love')">Love</button>
+ <button onclick="scrollToId('secret')">Secret</button>
+</nav>
 
-    <button class="btn dark" onclick="closeNote()">
-      Keep This One ♡
-    </button>
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<main id="home" class="hero">
+
+ <div class="hero-card">
+
+  <div class="hero-kicker">
+   September 7 · 2026
+  </div>
+
+  <h1>Six Months</h1>
+
+  <h2>for the girl who makes my world softer ♡</h2>
+
+  <p class="hero-description">
+   A tiny royal little corner of the internet,
+   filled with flowers, kittens, sparkles and
+   a ridiculous amount of love — made just for you.
+  </p>
+
+  <div class="buttons">
+
+   <button class="btn dark" onclick="scrollToId('letter')">
+    Open My Heart ♡
+   </button>
+
+   <button class="btn" onclick="sparkle(event)">
+    Make It Sparkle ✦
+   </button>
 
   </div>
+
+  <div class="scroll">
+   ↓ keep scrolling, pretty girl
+  </div>
+
+ </div>
+
+</main>
+
+
+<!-- =====================================================
+     ANNIVERSARY LETTER
+===================================================== -->
+
+<section id="letter">
+
+ <div class="container reveal">
+
+  <div class="section-heading">
+   <small>the most important part</small>
+   <h2>For You</h2>
+  </div>
+
+  <div class="paper letter">
+
+   <span class="deco d1">❦</span>
+   <span class="deco d2">❦</span>
+   <span class="deco d3">❦</span>
+   <span class="deco d4">❦</span>
+
+   <div class="letter-top">
+    six months · with all my heart
+   </div>
+
+   <h3>My Love,</h3>
+
+   <div class="letter-content">
+
+    <p>
+     Six months with you, and somehow, six months still feels
+     too small for everything you mean to me. There is something
+     incredibly beautiful about the way you have become such a
+     natural part of my life, as if your place in it was always
+     meant to be there.
+    </p>
+
+    <p>
+     I love the quiet things about loving you. I love having
+     someone whose name can make an ordinary moment feel warmer.
+     Someone I want to tell the smallest things to. Someone whose
+     happiness matters to me simply because it is yours.
+    </p>
+
+    <p>
+     You have this beautiful way of making life feel softer
+     without even trying. Your presence has become one of those
+     little things I never want to take for granted, because
+     somewhere along the way, you became much more than just
+     someone I love — you became someone my heart naturally
+     looks for.
+    </p>
+
+    <p>
+     If I had to describe what you feel like to me, I think
+     I would call it home. Not a place, not four walls, but
+     that quiet feeling of comfort you get when you know there
+     is someone in this world who means something incredibly
+     special to you.
+    </p>
+
+    <p>
+     I hope you always know how deeply you are loved. I hope
+     you know how beautiful your presence is, how much your
+     little ways matter, and how easily you can turn a normal
+     moment into something I want to remember.
+    </p>
+
+    <p>
+     I don't think love needs the biggest words in the world.
+     Sometimes it is simply choosing to care, choosing to stay
+     close, choosing to appreciate someone, and quietly being
+     grateful that out of everyone in this world, you found
+     each other.
+    </p>
+
+    <p>
+     And if I could keep only one thought from these six months,
+     it would be this: I am really, really glad that it is you.
+    </p>
+
+    <p>
+     Happy six months, my love. Six months of having you in my
+     world, and somehow I still feel lucky every time I get to
+     call you mine. ❤️
+    </p>
+
+    <p>
+     I love you — in the quiet moments, in the silly moments,
+     in the little moments that nobody else sees, and in all
+     the ways words will probably never be enough to explain.
+    </p>
+
+   </div>
+
+   <div class="signature">
+    yours, with all my love ♡
+   </div>
+
+  </div>
+
+ </div>
+
+</section>
+
+
+<!-- =====================================================
+     KITTEN GARDEN
+===================================================== -->
+
+<section id="kittens">
+
+ <div class="container reveal">
+
+  <div class="section-heading">
+   <small>little pieces of love</small>
+   <h2>Kitten Garden 🐾</h2>
+
+   <p>
+    There are tiny messages hidden behind these little
+    royal kittens. Go on… tap them. ♡
+   </p>
+  </div>
+
+
+  <div class="kitty-grid">
+
+   <div class="kitty-card" onclick="openNote(0)">
+
+    <div class="kitty-big">
+
+     <div class="head">
+      <div class="ear l"></div>
+      <div class="ear r"></div>
+      <div class="eye l"></div>
+      <div class="eye r"></div>
+      <div class="nose"></div>
+     </div>
+
+     <div class="bow">🎀</div>
+
+    </div>
+
+    <h3>A Little Note</h3>
+    <p>this tiny kitten has something for you ♡</p>
+
+   </div>
+
+
+   <div class="kitty-card" onclick="openNote(1)">
+
+    <div class="kitty-big">
+
+     <div class="head">
+      <div class="ear l"></div>
+      <div class="ear r"></div>
+      <div class="eye l"></div>
+      <div class="eye r"></div>
+      <div class="nose"></div>
+     </div>
+
+     <div class="bow">🌸</div>
+
+    </div>
+
+    <h3>For My Girl</h3>
+    <p>another tiny thing I wanted you to know</p>
+
+   </div>
+
+
+   <div class="kitty-card" onclick="openNote(2)">
+
+    <div class="kitty-big">
+
+     <div class="head">
+      <div class="ear l"></div>
+      <div class="ear r"></div>
+      <div class="eye l"></div>
+      <div class="eye r"></div>
+      <div class="nose"></div>
+     </div>
+
+     <div class="bow">🌷</div>
+
+    </div>
+
+    <h3>One More ♡</h3>
+    <p>because apparently two weren't enough</p>
+
+   </div>
+
+  </div>
+
+ </div>
+
+</section>
+
+
+<!-- =====================================================
+     HUG / KISS
+===================================================== -->
+
+<section id="love">
+
+ <div class="container reveal">
+
+  <div class="section-heading">
+   <small>important buttons</small>
+   <h2>A Little Love</h2>
+  </div>
+
+
+  <div class="action-grid">
+
+   <div class="action">
+
+    <span class="action-icon">🫂</span>
+
+    <h3>Need A Hug?</h3>
+
+    <p>
+     Press this whenever you need a tiny reminder
+     that you're very, very loved.
+    </p>
+
+    <button class="btn dark" onclick="hug()">
+     Send Me A Hug 🫂
+    </button>
+
+   </div>
+
+
+   <div class="action">
+
+    <span class="action-icon">💋</span>
+
+    <h3>A Little Kiss</h3>
+
+    <p>
+     Warning: pressing this button may cause
+     an unnecessary amount of hearts.
+    </p>
+
+    <button class="btn dark" onclick="kiss()">
+     Send A Kiss 💋
+    </button>
+
+   </div>
+
+  </div>
+
+ </div>
+
+</section>
+
+
+<!-- =====================================================
+     LOVE METER
+===================================================== -->
+
+<section>
+
+ <div class="container reveal">
+
+  <div class="section-heading">
+   <small>completely scientific</small>
+   <h2>The Love Meter</h2>
+
+   <p>
+    We tried putting my love into numbers.
+    It didn't go particularly well.
+   </p>
+  </div>
+
+
+  <div class="paper meter-card">
+
+   <div class="meter-number" id="meterNumber">
+    0%
+   </div>
+
+   <div class="meter">
+    <div class="fill" id="fill"></div>
+   </div>
+
+   <button class="btn dark" onclick="measureLove()">
+    Measure My Love ♡
+   </button>
+
+   <p style="margin-top:18px;color:#704050;font-size:12px">
+    Results may be scientifically impossible.
+   </p>
+
+  </div>
+
+ </div>
+
+</section>
+
+
+<!-- =====================================================
+     FLOWER
+===================================================== -->
+
+<section>
+
+ <div class="container reveal">
+
+  <div class="section-heading">
+   <small>something pretty for you</small>
+   <h2>Let A Flower Bloom 🌷</h2>
+  </div>
+
+
+  <div class="flower-stage">
+
+   <div class="flower" id="flower">
+
+    <div class="petal"></div>
+    <div class="petal"></div>
+    <div class="petal"></div>
+    <div class="petal"></div>
+    <div class="petal"></div>
+    <div class="petal"></div>
+
+    <div class="center"></div>
+
+   </div>
+
+   <h3>A flower for you</h3>
+
+   <p>
+    because one more little pretty thing never hurts
+   </p>
+
+   <button class="btn" onclick="bloom()">
+    Make It Bloom ✦
+   </button>
+
+  </div>
+
+ </div>
+
+</section>
+
+
+<!-- =====================================================
+     SECRET
+===================================================== -->
+
+<section id="secret">
+
+ <div class="container reveal">
+
+  <div class="section-heading">
+   <small>you found the last one</small>
+   <h2>A Tiny Secret</h2>
+
+   <p>
+    There is a little envelope waiting for you.
+   </p>
+  </div>
+
+
+  <div class="secret-box">
+
+   <div class="envelope" id="envelope" onclick="secret()">
+
+    <div class="env-body"></div>
+    <div class="env-flap"></div>
+
+    <div class="env-heart">
+     ❤️
+    </div>
+
+   </div>
+
+   <button class="btn dark" onclick="secret()">
+    Open The Secret ♡
+   </button>
+
+  </div>
+
+ </div>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+ <div class="footer-script">
+  Happy Six Months, Ananta ♡
+ </div>
+
+ <p>
+  made with flowers, kittens, sparkles & an unreasonable amount of love
+ </p>
+
+ <br>
+
+ <button class="btn" onclick="scrollToId('home')">
+  Back To The Beginning ↑
+ </button>
+
+</footer>
+
 </div>
 
 
-<!-- HUG -->
+<!-- =====================================================
+     MODAL
+===================================================== -->
+
+<div class="modal" id="modal">
+
+ <div class="modal-card">
+
+  <button class="close" onclick="closeModal()">×</button>
+
+  <h3 id="modalTitle">
+   For You ♡
+  </h3>
+
+  <p id="modalText"></p>
+
+  <button class="btn dark" onclick="closeModal()">
+   Keep This One ♡
+  </button>
+
+ </div>
+
+</div>
+
+
 <div class="hug-overlay" id="hugOverlay">
-  <div class="big-hug">🫂❤️</div>
+ <div class="hug">🫂❤️</div>
 </div>
 
-
-<!-- KISS -->
 <div class="kiss-overlay" id="kissOverlay"></div>
 
 
 <script>
 
-/* =========================
-   NAVIGATION
-========================= */
+/* =====================================================
+   NAV
+===================================================== */
 
-function goTo(id){
-  document.getElementById(id).scrollIntoView({
-    behavior:"smooth",
-    block:"start"
-  });
+function scrollToId(id){
+ document.getElementById(id).scrollIntoView({
+  behavior:"smooth"
+ });
 }
 
 
-/* =========================
-   FLOATING PARTICLES
-========================= */
+/* =====================================================
+   FLOATING BACKGROUND
+===================================================== */
 
-const particleBox = document.getElementById("particles");
+const floating=document.getElementById("floating");
 
-const symbols = ["♡","✦","✧","🌸","♥","·"];
+const symbols=[
+ "♡","♥","✦","✧","🌸","🌷","·","🎀"
+];
 
-function createParticle(){
+function createFloat(){
 
-  const p = document.createElement("span");
+ const el=document.createElement("span");
 
-  p.className = "particle";
+ el.className="float";
 
-  p.textContent =
-    symbols[Math.floor(Math.random()*symbols.length)];
+ el.textContent=
+ symbols[Math.floor(Math.random()*symbols.length)];
 
-  p.style.left = Math.random()*100 + "%";
+ el.style.left=Math.random()*100+"%";
 
-  p.style.setProperty(
-    "--drift",
-    (Math.random()*180-90) + "px"
-  );
+ el.style.fontSize=
+ (9+Math.random()*16)+"px";
 
-  p.style.animationDuration =
-    (9 + Math.random()*10) + "s";
+ el.style.setProperty(
+  "--x",
+  (Math.random()*180-90)+"px"
+ );
 
-  p.style.fontSize =
-    (10 + Math.random()*13) + "px";
+ el.style.animationDuration=
+ (9+Math.random()*12)+"s";
 
-  particleBox.appendChild(p);
+ floating.appendChild(el);
 
-  setTimeout(()=>{
-    p.remove();
-  },20000);
+ setTimeout(()=>{
+  el.remove();
+ },22000);
 }
 
-setInterval(createParticle,650);
+setInterval(createFloat,500);
+
+for(let i=0;i<15;i++){
+ setTimeout(createFloat,i*250);
+}
 
 
-/* =========================
+/* =====================================================
    CLICK SPARKLES
-========================= */
+===================================================== */
 
-document.addEventListener("click",(e)=>{
+document.addEventListener("click",e=>{
 
-  if(
-    e.target.closest("button") ||
-    e.target.closest(".kitten-card") ||
-    e.target.closest(".envelope")
-  ){
-    sparkleBurst(e);
-  }
+ if(
+  e.target.closest("button") ||
+  e.target.closest(".kitty-card") ||
+  e.target.closest(".envelope")
+ ){
+  sparkle(e);
+ }
 
 });
 
-function sparkleBurst(e){
 
-  const amount = 10;
+function sparkle(e){
 
-  for(let i=0;i<amount;i++){
+ for(let i=0;i<12;i++){
 
-    const s = document.createElement("span");
+  const s=document.createElement("span");
 
-    s.className = "spark";
+  s.className="spark";
 
-    s.textContent =
-      ["♡","✦","♥","✧"][Math.floor(Math.random()*4)];
+  s.textContent=
+   ["♡","✦","♥","✧"][Math.floor(Math.random()*4)];
 
-    s.style.left = e.clientX + "px";
-    s.style.top = e.clientY + "px";
+  s.style.left=e.clientX+"px";
+  s.style.top=e.clientY+"px";
 
-    s.style.setProperty(
-      "--x",
-      (Math.random()*180-90) + "px"
-    );
+  s.style.setProperty(
+   "--x",
+   (Math.random()*180-90)+"px"
+  );
 
-    s.style.setProperty(
-      "--y",
-      (Math.random()*180-90) + "px"
-    );
+  s.style.setProperty(
+   "--y",
+   (Math.random()*180-90)+"px"
+  );
 
-    document.body.appendChild(s);
+  document.body.appendChild(s);
 
-    setTimeout(()=>s.remove(),1000);
-  }
+  setTimeout(()=>s.remove(),1000);
+ }
 }
 
 
-/* =========================
-   KITTEN NOTES
-========================= */
+/* =====================================================
+   KITTEN PARALLAX
+===================================================== */
 
-const notes = [
+const kitties=
+ document.querySelectorAll(".kitty-bg");
 
-{
+document.addEventListener("mousemove",e=>{
+
+ const x=(e.clientX/window.innerWidth-.5);
+ const y=(e.clientY/window.innerHeight-.5);
+
+ kitties.forEach((kitty,i)=>{
+
+  const strength=(i%4+1)*5;
+
+  kitty.style.transform=
+   `translate(${x*strength}px,${y*strength}px)`;
+
+ });
+
+});
+
+
+/* =====================================================
+   LOVE NOTES
+===================================================== */
+
+const notes=[
+
+ {
   title:"A Little Reminder ♡",
   text:
-  "You are loved in ways that don't always need a reason. Sometimes I simply look at you and feel lucky that someone as lovely as you exists in my little world."
-},
+  "I hope you always remember that you are someone worth celebrating. There is something incredibly lovely about simply being you, and I hope you never forget how much light you bring into my world."
+ },
 
-{
-  title:"For My Favourite Person 🌸",
+ {
+  title:"For My Favourite Girl 🌸",
   text:
-  "I hope you never forget how special you are. There is something about you that makes ordinary moments feel softer, and I hope I get to keep reminding you of that."
-},
+  "If I could give you one thing every day, it would be the feeling of knowing how loved you are. No grand reason, no special occasion — just because you deserve to feel it."
+ },
 
-{
-  title:"One More Thing ♡",
+ {
+  title:"One More Little Thing ♡",
   text:
-  "If I could leave one feeling with you every single day, it would be this: you are deeply appreciated, genuinely cherished, and loved exactly for being yourself."
-}
+  "Some people become special slowly, quietly, almost without you noticing. And then one day you realise that their name has become one of your favourite things to see. That's you."
+ }
 
 ];
 
-function openNote(index){
 
-  document.getElementById("noteTitle").textContent =
-    notes[index].title;
+function openNote(i){
 
-  document.getElementById("noteText").textContent =
-    notes[index].text;
+ document.getElementById("modalTitle")
+  .textContent=notes[i].title;
 
-  document.getElementById("noteModal")
-    .classList.add("active");
+ document.getElementById("modalText")
+  .textContent=notes[i].text;
+
+ document.getElementById("modal")
+  .classList.add("show");
 }
 
-function closeNote(){
 
-  document.getElementById("noteModal")
-    .classList.remove("active");
+function closeModal(){
+
+ document.getElementById("modal")
+  .classList.remove("show");
+
 }
 
-document.getElementById("noteModal")
-  .addEventListener("click",(e)=>{
 
-    if(e.target.id === "noteModal"){
-      closeNote();
-    }
+document.getElementById("modal")
+ .addEventListener("click",e=>{
 
-  });
+  if(e.target.id==="modal"){
+   closeModal();
+  }
+
+ });
 
 
-/* =========================
+/* =====================================================
    HUG
-========================= */
+===================================================== */
 
-function giveHug(){
+function hug(){
 
-  const overlay =
-    document.getElementById("hugOverlay");
+ const overlay=
+  document.getElementById("hugOverlay");
 
+ overlay.classList.remove("show");
+
+ void overlay.offsetWidth;
+
+ overlay.classList.add("show");
+
+ setTimeout(()=>{
   overlay.classList.remove("show");
+ },1000);
 
-  void overlay.offsetWidth;
-
-  overlay.classList.add("show");
-
-  setTimeout(()=>{
-    overlay.classList.remove("show");
-  },1000);
 }
 
 
-/* =========================
+/* =====================================================
    KISS
-========================= */
+===================================================== */
 
-function giveKiss(){
+function kiss(){
 
-  const overlay =
-    document.getElementById("kissOverlay");
+ const overlay=
+  document.getElementById("kissOverlay");
 
-  overlay.innerHTML="";
+ overlay.innerHTML="";
 
+ overlay.classList.remove("show");
+
+ void overlay.offsetWidth;
+
+ overlay.classList.add("show");
+
+ for(let i=0;i<22;i++){
+
+  const k=document.createElement("span");
+
+  k.className="kiss";
+
+  k.textContent=
+   ["💋","❤️","💗","♡"][Math.floor(Math.random()*4)];
+
+  k.style.left=Math.random()*100+"%";
+
+  k.style.setProperty(
+   "--move",
+   (Math.random()*240-120)+"px"
+  );
+
+  k.style.animationDelay=
+   (Math.random()*.5)+"s";
+
+  overlay.appendChild(k);
+ }
+
+ setTimeout(()=>{
   overlay.classList.remove("show");
+  overlay.innerHTML="";
+ },1900);
 
-  void overlay.offsetWidth;
-
-  overlay.classList.add("show");
-
-  for(let i=0;i<18;i++){
-
-    const heart =
-      document.createElement("div");
-
-    heart.className="kiss-heart";
-
-    heart.textContent =
-      ["💋","❤️","💗","♡"][Math.floor(Math.random()*4)];
-
-    heart.style.left =
-      Math.random()*100 + "%";
-
-    heart.style.bottom =
-      (Math.random()*20) + "%";
-
-    heart.style.setProperty(
-      "--move",
-      (Math.random()*200-100)+"px"
-    );
-
-    heart.style.animationDelay =
-      (Math.random()*0.5)+"s";
-
-    overlay.appendChild(heart);
-  }
-
-  setTimeout(()=>{
-    overlay.classList.remove("show");
-    overlay.innerHTML="";
-  },1900);
 }
 
 
-/* =========================
+/* =====================================================
    LOVE METER
-========================= */
+===================================================== */
 
-function fillLove(){
+function measureLove(){
 
-  const fill =
-    document.getElementById("meterFill");
+ const fill=document.getElementById("fill");
+ const number=document.getElementById("meterNumber");
 
-  const number =
-    document.getElementById("meterNumber");
+ fill.style.width="100%";
 
-  let current = 0;
+ let n=0;
 
-  fill.style.width = "100%";
+ const timer=setInterval(()=>{
 
-  const timer = setInterval(()=>{
+  n++;
 
-    current++;
+  if(n>=101){
+   n=100;
+   clearInterval(timer);
+  }
 
-    if(current>=101){
-      current=100;
-      clearInterval(timer);
-    }
+  number.textContent=n+"%";
 
-    number.textContent =
-      current + "%";
-
-  },18);
+ },18);
 
 }
 
 
-/* =========================
+/* =====================================================
    FLOWER
-========================= */
+===================================================== */
 
-function bloomFlower(){
+function bloom(){
 
-  const flower =
-    document.getElementById("flower");
+ const flower=
+  document.getElementById("flower");
 
-  flower.classList.remove("bloom");
+ flower.classList.remove("bloom");
 
-  void flower.offsetWidth;
+ void flower.offsetWidth;
 
-  flower.classList.add("bloom");
+ flower.classList.add("bloom");
 
-  for(let i=0;i<18;i++){
-
-    setTimeout(()=>{
-
-      const p =
-        document.createElement("span");
-
-      p.className="spark";
-
-      p.textContent =
-        ["🌸","✦","♡"][Math.floor(Math.random()*3)];
-
-      p.style.left =
-        (window.innerWidth/2 +
-        Math.random()*250-125) + "px";
-
-      p.style.top =
-        (window.innerHeight*.55 +
-        Math.random()*100-50) + "px";
-
-      p.style.setProperty(
-        "--x",
-        (Math.random()*160-80)+"px"
-      );
-
-      p.style.setProperty(
-        "--y",
-        (Math.random()*160-80)+"px"
-      );
-
-      document.body.appendChild(p);
-
-      setTimeout(()=>p.remove(),1000);
-
-    },i*45);
-
-  }
-
-}
-
-
-/* =========================
-   SECRET ENVELOPE
-========================= */
-
-let secretOpened=false;
-
-function openSecret(){
-
-  const envelope =
-    document.getElementById("envelope");
-
-  if(secretOpened){
-
-    openNote(2);
-    return;
-  }
-
-  envelope.classList.add("open");
-
-  secretOpened=true;
+ for(let i=0;i<20;i++){
 
   setTimeout(()=>{
 
-    document.getElementById("noteTitle")
-      .textContent="One Last Little Secret ♡";
+   const s=document.createElement("span");
 
-    document.getElementById("noteText")
-      .textContent=
-      "If this entire little website could say just one thing, it would be this: I hope you always know how loved you are. Not only on special days, but on every completely ordinary day too. ❤️";
+   s.className="spark";
 
-    document.getElementById("noteModal")
-      .classList.add("active");
+   s.textContent=
+    ["🌸","✦","♡"][Math.floor(Math.random()*3)];
+
+   s.style.left=
+    (window.innerWidth/2+
+     Math.random()*260-130)+"px";
+
+   s.style.top=
+    (window.innerHeight*.58+
+     Math.random()*100-50)+"px";
+
+   s.style.setProperty(
+    "--x",
+    (Math.random()*160-80)+"px"
+   );
+
+   s.style.setProperty(
+    "--y",
+    (Math.random()*160-80)+"px"
+   );
+
+   document.body.appendChild(s);
+
+   setTimeout(()=>s.remove(),1000);
+
+  },i*40);
+
+ }
+
+}
+
+
+/* =====================================================
+   SECRET ENVELOPE
+===================================================== */
+
+let opened=false;
+
+function secret(){
+
+ const env=
+  document.getElementById("envelope");
+
+ if(!opened){
+
+  env.classList.add("open");
+
+  opened=true;
+
+  setTimeout(()=>{
+
+   document.getElementById("modalTitle")
+    .textContent="One Last Little Secret ♡";
+
+   document.getElementById("modalText")
+    .textContent=
+    "If this whole little world could leave you with one feeling, I hope it would be this: you are cherished, appreciated and loved so much more than a webpage could ever say. ❤️";
+
+   document.getElementById("modal")
+    .classList.add("show");
 
   },650);
 
+ }else{
+
+  openNote(2);
+
+ }
+
 }
 
 
-/* =========================
+/* =====================================================
    SCROLL REVEAL
-========================= */
+===================================================== */
 
-const observer =
-  new IntersectionObserver(
-    entries=>{
+const observer=
+ new IntersectionObserver(entries=>{
 
-      entries.forEach(entry=>{
+  entries.forEach(entry=>{
 
-        if(entry.isIntersecting){
-          entry.target.classList.add("visible");
-        }
+   if(entry.isIntersecting){
+    entry.target.classList.add("visible");
+   }
 
-      });
+  });
 
-    },
-    {
-      threshold:.12
-    }
-  );
+ },{
+  threshold:.12
+ });
+
 
 document.querySelectorAll(".reveal")
-  .forEach(el=>observer.observe(el));
+ .forEach(el=>observer.observe(el));
 
 
-/* =========================
-   RANDOM INITIAL PARTICLES
-========================= */
+/* =====================================================
+   ESCAPE
+===================================================== */
 
-for(let i=0;i<12;i++){
-  setTimeout(createParticle,i*300);
-}
+document.addEventListener("keydown",e=>{
 
-
-/* =========================
-   ESC TO CLOSE
-========================= */
-
-document.addEventListener("keydown",(e)=>{
-
-  if(e.key==="Escape"){
-    closeNote();
-  }
+ if(e.key==="Escape"){
+  closeModal();
+ }
 
 });
 
