@@ -1,1127 +1,1582 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#d99aa8">
-<title>Six Months of Us ♡</title>
+<title>For Ananta — Six Months ♡</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&display=swap');
-
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
-    -webkit-tap-highlight-color:transparent;
+:root{
+  --pink:#d99aa5;
+  --dust:#e8b8bd;
+  --cream:#fff4e8;
+  --paper:#f9e5d8;
+  --wine:#651f32;
+  --deep:#2b101b;
+  --gold:#c99b58;
+  --rose:#b94e68;
+  --shadow:0 25px 70px rgba(67,16,32,.22);
 }
 
-:root{
-    --pink:#d99aa8;
-    --pink2:#efc4ca;
-    --cream:#fff3dc;
-    --cream2:#ead8b8;
-    --brown:#76555a;
-    --deep:#593d43;
-    --gold:#c9a96b;
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
 }
 
 body{
-    min-height:100vh;
-    color:var(--deep);
-    font-family:"DM Sans",sans-serif;
-    overflow-x:hidden;
-    background:
-        radial-gradient(circle at 15% 20%,rgba(255,255,255,.28),transparent 20%),
-        radial-gradient(circle at 85% 80%,rgba(255,255,255,.2),transparent 25%),
-        repeating-radial-gradient(
-            ellipse at 50% 50%,
-            transparent 0 25px,
-            rgba(255,243,220,.07) 26px 29px,
-            transparent 30px 55px
-        ),
-        #d99aa8;
+  background:#d99ba5;
+  color:var(--deep);
+  font-family:"DM Sans",sans-serif;
+  overflow-x:hidden;
 }
 
-/* ROYAL BORDER */
+/* =========================
+   ROYAL BACKGROUND
+========================= */
 
 .page{
-    position:relative;
-    width:100%;
-    max-width:620px;
-    min-height:100vh;
-    margin:auto;
-    padding:18px;
-    overflow:hidden;
+  min-height:100vh;
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 15% 20%,rgba(255,244,232,.55),transparent 20%),
+    radial-gradient(circle at 85% 70%,rgba(101,31,50,.18),transparent 25%),
+    linear-gradient(135deg,#d895a0,#edc0bd 45%,#c9808d);
 }
 
-.ornate-border{
-    position:fixed;
-    inset:10px;
-    border:2px solid rgba(255,243,220,.88);
-    pointer-events:none;
-    z-index:50;
-    box-shadow:
-        inset 0 0 0 5px rgba(255,243,220,.16),
-        inset 0 0 0 9px rgba(105,70,70,.13);
+.page:before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:0;
+  opacity:.25;
+  background-image:
+    repeating-radial-gradient(
+      ellipse at center,
+      transparent 0 22px,
+      rgba(255,244,232,.35) 23px 24px,
+      transparent 25px 48px
+    );
+  background-size:150px 150px;
+  animation:patternMove 35s linear infinite;
 }
 
-.ornate-border:before,
-.ornate-border:after{
-    content:"❧";
-    position:absolute;
-    font-family:serif;
-    color:var(--cream);
-    font-size:46px;
-    text-shadow:0 2px 8px rgba(80,40,40,.15);
+@keyframes patternMove{
+  from{background-position:0 0}
+  to{background-position:150px 150px}
 }
 
-.ornate-border:before{
-    top:-16px;
-    left:-9px;
-    transform:rotate(-45deg);
+.ornament{
+  position:absolute;
+  color:rgba(255,244,232,.38);
+  font-family:"Cormorant Garamond",serif;
+  font-size:120px;
+  pointer-events:none;
+  z-index:1;
+  animation:ornamentFloat 8s ease-in-out infinite;
 }
 
-.ornate-border:after{
-    bottom:-16px;
-    right:-9px;
-    transform:rotate(135deg);
+.ornament.one{left:-25px;top:110px}
+.ornament.two{right:-25px;top:500px;animation-delay:2s}
+.ornament.three{left:5%;bottom:80px;animation-delay:4s}
+.ornament.four{right:8%;bottom:250px;animation-delay:1s}
+
+@keyframes ornamentFloat{
+  0%,100%{transform:translateY(0) rotate(-3deg)}
+  50%{transform:translateY(-16px) rotate(3deg)}
 }
 
-/* BACKGROUND FILIGREE */
+/* =========================
+   FLOATING PARTICLES
+========================= */
 
-.filigree{
-    position:fixed;
-    inset:0;
-    pointer-events:none;
-    opacity:.36;
-    z-index:-1;
+#particles{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:4;
+  overflow:hidden;
 }
 
-.filigree span{
-    position:absolute;
-    color:var(--cream);
-    font-family:"Times New Roman",serif;
-    font-size:70px;
-    animation:sway 7s ease-in-out infinite;
+.particle{
+  position:absolute;
+  bottom:-40px;
+  font-size:15px;
+  opacity:.7;
+  animation:rise linear forwards;
 }
 
-.f1{top:5%;left:4%;transform:rotate(-30deg)}
-.f2{top:22%;right:1%;transform:rotate(35deg);animation-delay:1s}
-.f3{top:48%;left:-3%;transform:rotate(-80deg);animation-delay:2s}
-.f4{bottom:20%;right:0;transform:rotate(80deg);animation-delay:3s}
-.f5{bottom:2%;left:5%;transform:rotate(30deg);animation-delay:4s}
-
-@keyframes sway{
-    0%,100%{transform:translateY(0) rotate(-30deg)}
-    50%{transform:translateY(-9px) rotate(-25deg)}
+@keyframes rise{
+  0%{
+    transform:translate3d(0,0,0) rotate(0);
+    opacity:0;
+  }
+  10%{opacity:.8}
+  90%{opacity:.8}
+  100%{
+    transform:translate3d(var(--drift),-110vh,0) rotate(360deg);
+    opacity:0;
+  }
 }
 
-/* PETALS */
+/* =========================
+   NAV
+========================= */
 
-.petal{
-    position:fixed;
-    top:-30px;
-    width:12px;
-    height:18px;
-    background:rgba(255,238,224,.78);
-    border-radius:100% 0 100% 0;
-    pointer-events:none;
-    animation:fall linear forwards;
-    z-index:40;
+.nav{
+  position:fixed;
+  top:18px;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:50;
+  display:flex;
+  gap:6px;
+  padding:7px;
+  border:1px solid rgba(255,244,232,.55);
+  border-radius:999px;
+  background:rgba(72,18,34,.68);
+  backdrop-filter:blur(15px);
+  box-shadow:0 15px 35px rgba(60,10,25,.18);
 }
 
-@keyframes fall{
-    to{
-        transform:translate3d(var(--x),110vh,0) rotate(480deg);
-        opacity:.1;
-    }
+.nav button{
+  border:0;
+  background:transparent;
+  color:#fff5ed;
+  padding:9px 14px;
+  border-radius:999px;
+  cursor:pointer;
+  font-size:12px;
+  transition:.3s ease;
 }
 
-/* HERO */
+.nav button:hover{
+  background:#f8ddd4;
+  color:var(--wine);
+  transform:translateY(-2px);
+}
+
+/* =========================
+   HERO
+========================= */
 
 .hero{
-    min-height:100vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    position:relative;
-    padding:45px 15px 30px;
+  min-height:100vh;
+  position:relative;
+  z-index:2;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:100px 20px 70px;
+  text-align:center;
 }
 
-.small-crown{
-    font-size:25px;
-    color:var(--cream);
-    letter-spacing:8px;
-    margin-bottom:14px;
-    animation:float 3s ease-in-out infinite;
+.hero-inner{
+  width:min(850px,100%);
+  position:relative;
+}
+
+.kicker{
+  letter-spacing:5px;
+  text-transform:uppercase;
+  font-size:11px;
+  color:var(--wine);
+  font-weight:700;
+  margin-bottom:18px;
+  animation:fadeUp 1s ease both;
 }
 
 .hero h1{
-    font-family:"Cormorant Garamond",serif;
-    font-size:clamp(50px,14vw,82px);
-    line-height:.8;
-    font-weight:600;
-    color:#fff2df;
-    text-shadow:0 4px 15px rgba(91,57,61,.18);
+  font-family:"Great Vibes",cursive;
+  font-size:clamp(65px,13vw,145px);
+  line-height:.85;
+  color:#fff4e8;
+  text-shadow:
+    0 3px 0 rgba(101,31,50,.2),
+    0 18px 45px rgba(71,14,31,.22);
+  animation:heroIn 1.4s cubic-bezier(.2,.8,.2,1) both;
 }
 
-.hero h1 span{
-    display:block;
-    font-size:.55em;
-    letter-spacing:6px;
-    margin-top:20px;
+.hero h2{
+  margin-top:18px;
+  font-family:"Cormorant Garamond",serif;
+  color:var(--wine);
+  font-size:clamp(25px,4vw,42px);
+  font-weight:600;
+  animation:fadeUp 1s .3s ease both;
 }
 
-.subtitle{
-    margin-top:22px;
-    font-family:"Cormorant Garamond",serif;
-    font-size:21px;
-    font-style:italic;
-    color:#fff1df;
+.hero p{
+  max-width:620px;
+  margin:22px auto 30px;
+  color:#542031;
+  font-size:15px;
+  line-height:1.9;
+  animation:fadeUp 1s .5s ease both;
 }
 
-.date-ribbon{
-    margin-top:25px;
-    padding:10px 24px;
-    border:1px solid rgba(255,243,220,.8);
-    border-radius:50px;
-    color:var(--cream);
-    background:rgba(255,243,220,.1);
-    backdrop-filter:blur(5px);
+@keyframes heroIn{
+  from{
+    opacity:0;
+    transform:translateY(35px) scale(.92);
+  }
+  to{
+    opacity:1;
+    transform:none;
+  }
 }
 
-.scroll{
-    position:absolute;
-    bottom:35px;
-    font-size:11px;
-    letter-spacing:3px;
-    color:var(--cream);
-    animation:bounce 2s infinite;
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:none}
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.btn-row{
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  border:1px solid rgba(101,31,50,.3);
+  padding:14px 22px;
+  border-radius:999px;
+  cursor:pointer;
+  font-family:"DM Sans",sans-serif;
+  font-weight:700;
+  transition:.35s ease;
+  background:var(--cream);
+  color:var(--wine);
+  box-shadow:0 10px 25px rgba(72,18,34,.14);
+}
+
+.btn:hover{
+  transform:translateY(-4px) scale(1.03);
+  box-shadow:0 18px 35px rgba(72,18,34,.22);
+}
+
+.btn.dark{
+  background:var(--wine);
+  color:#fff4e8;
+}
+
+.scroll-hint{
+  margin-top:45px;
+  font-size:11px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:#6c2639;
+  animation:bounce 2s infinite;
 }
 
 @keyframes bounce{
-    0%,100%{transform:translateY(0)}
-    50%{transform:translateY(7px)}
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(8px)}
 }
 
-@keyframes float{
-    0%,100%{transform:translateY(0)}
-    50%{transform:translateY(-8px)}
+/* =========================
+   SECTION
+========================= */
+
+section{
+  position:relative;
+  z-index:5;
+  padding:100px 20px;
 }
 
-/* CARDS */
-
-.section{
-    margin:30px 0 65px;
-}
-
-.card{
-    position:relative;
-    background:
-        linear-gradient(rgba(255,250,236,.93),rgba(255,243,220,.93));
-    border:1px solid rgba(115,76,78,.2);
-    padding:30px 23px;
-    border-radius:5px;
-    box-shadow:
-        0 18px 45px rgba(83,48,54,.15),
-        inset 0 0 35px rgba(201,169,107,.1);
-}
-
-.card:before{
-    content:"";
-    position:absolute;
-    inset:8px;
-    border:1px solid rgba(185,148,95,.45);
-    pointer-events:none;
+.section-inner{
+  width:min(1050px,100%);
+  margin:auto;
 }
 
 .section-title{
-    text-align:center;
-    font-family:"Cormorant Garamond",serif;
-    font-size:39px;
-    font-weight:600;
-    margin-bottom:6px;
-    color:#704b52;
+  text-align:center;
+  margin-bottom:45px;
 }
 
-.section-sub{
-    text-align:center;
-    font-family:"Cormorant Garamond",serif;
-    font-style:italic;
-    margin-bottom:23px;
-    opacity:.75;
+.section-title small{
+  color:var(--wine);
+  text-transform:uppercase;
+  letter-spacing:4px;
+  font-size:10px;
+  font-weight:700;
 }
 
-/* LETTER */
+.section-title h2{
+  margin-top:8px;
+  font-family:"Cormorant Garamond",serif;
+  font-size:clamp(40px,7vw,70px);
+  color:#fff4e8;
+  font-weight:600;
+}
+
+.section-title p{
+  max-width:570px;
+  margin:10px auto;
+  color:#552032;
+  line-height:1.8;
+}
+
+/* =========================
+   ORNATE CARD
+========================= */
+
+.royal-card{
+  position:relative;
+  background:
+    linear-gradient(rgba(255,244,232,.92),rgba(255,236,222,.95));
+  border:1px solid rgba(101,31,50,.28);
+  border-radius:10px;
+  box-shadow:var(--shadow);
+  padding:55px;
+}
+
+.royal-card:before,
+.royal-card:after{
+  content:"";
+  position:absolute;
+  inset:13px;
+  border:1px solid rgba(180,126,75,.45);
+  pointer-events:none;
+}
+
+.royal-card:after{
+  inset:20px;
+  border-color:rgba(101,31,50,.18);
+}
+
+.corner{
+  position:absolute;
+  font-family:"Cormorant Garamond",serif;
+  color:#b88955;
+  font-size:42px;
+  z-index:2;
+}
+
+.c1{top:17px;left:18px}
+.c2{top:17px;right:18px;transform:scaleX(-1)}
+.c3{bottom:17px;left:18px;transform:scaleY(-1)}
+.c4{bottom:17px;right:18px;transform:scale(-1)}
+
+/* =========================
+   ANNIVERSARY LETTER
+========================= */
 
 .letter{
-    font-family:"Cormorant Garamond",serif;
-    font-size:20px;
-    line-height:1.65;
-    white-space:pre-line;
-    position:relative;
-    z-index:2;
+  max-width:900px;
+  margin:auto;
+}
+
+.letter-label{
+  text-align:center;
+  color:#8e5260;
+  font-size:12px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  margin-bottom:25px;
+}
+
+.letter h3{
+  text-align:center;
+  font-family:"Great Vibes",cursive;
+  font-size:clamp(45px,7vw,75px);
+  color:var(--wine);
+  margin-bottom:25px;
+}
+
+.letter-text{
+  font-family:"Cormorant Garamond",serif;
+  font-size:clamp(18px,2.2vw,22px);
+  line-height:1.75;
+  color:#44202c;
+}
+
+.letter-text p{
+  margin-bottom:22px;
 }
 
 .signature{
-    text-align:right;
-    font-size:25px;
-    margin-top:22px;
-    font-style:italic;
+  margin-top:35px;
+  text-align:right;
+  font-family:"Great Vibes",cursive;
+  font-size:40px;
+  color:var(--rose);
 }
 
-/* CENTER CHARACTER */
+/* =========================
+   KITTEN GARDEN
+========================= */
 
-.character-box{
-    text-align:center;
-    margin:15px 0 35px;
-}
-
-.kitty{
-    width:190px;
-    height:190px;
-    margin:auto;
-    position:relative;
-    animation:kittyFloat 4s ease-in-out infinite;
-    cursor:pointer;
-    filter:drop-shadow(0 12px 10px rgba(91,54,60,.18));
-}
-
-@keyframes kittyFloat{
-    0%,100%{transform:translateY(0) rotate(0)}
-    50%{transform:translateY(-10px) rotate(1deg)}
-}
-
-/* cute cat illustration */
-
-.cat-head{
-    position:absolute;
-    width:130px;
-    height:108px;
-    background:#fff8ec;
-    border:3px solid #6f5354;
-    border-radius:48% 48% 45% 45%;
-    left:30px;
-    top:25px;
-}
-
-.ear{
-    position:absolute;
-    width:48px;
-    height:50px;
-    background:#fff8ec;
-    border:3px solid #6f5354;
-    top:5px;
-    z-index:-1;
-}
-
-.ear.left{
-    left:34px;
-    transform:rotate(-27deg);
-    border-radius:60% 10% 20% 20%;
-}
-
-.ear.right{
-    right:34px;
-    transform:rotate(27deg);
-    border-radius:10% 60% 20% 20%;
-}
-
-.eye{
-    position:absolute;
-    width:8px;
-    height:12px;
-    border-radius:50%;
-    background:#4d4141;
-    top:66px;
-}
-
-.eye.left{left:63px}
-.eye.right{right:63px}
-
-.nose{
-    position:absolute;
-    width:9px;
-    height:7px;
-    border-radius:50%;
-    background:#e2a05e;
-    top:79px;
-    left:59px;
-}
-
-.whisker{
-    position:absolute;
-    width:34px;
-    height:1px;
-    background:#6f5354;
-    top:82px;
-}
-
-.w1{left:4px;transform:rotate(8deg)}
-.w2{left:4px;top:90px;transform:rotate(-8deg)}
-.w3{right:4px;transform:rotate(-8deg)}
-.w4{right:4px;top:90px;transform:rotate(8deg)}
-
-.bow{
-    position:absolute;
-    width:48px;
-    height:32px;
-    right:4px;
-    top:12px;
-    z-index:5;
-}
-
-.bow:before,
-.bow:after{
-    content:"";
-    position:absolute;
-    width:28px;
-    height:25px;
-    background:#e989a2;
-    border:2px solid #8d5965;
-}
-
-.bow:before{
-    left:0;
-    transform:rotate(22deg);
-    border-radius:70% 25% 60% 25%;
-}
-
-.bow:after{
-    right:0;
-    transform:rotate(-22deg);
-    border-radius:25% 70% 25% 60%;
-}
-
-.bow span{
-    position:absolute;
-    width:14px;
-    height:14px;
-    background:#d97591;
-    border:2px solid #8d5965;
-    border-radius:50%;
-    left:17px;
-    top:9px;
-    z-index:2;
-}
-
-.body{
-    position:absolute;
-    width:98px;
-    height:80px;
-    left:46px;
-    top:112px;
-    background:#eda5b2;
-    border:3px solid #6f5354;
-    border-radius:45% 45% 20% 20%;
-}
-
-.arm{
-    position:absolute;
-    width:47px;
-    height:19px;
-    background:#fff8ec;
-    border:3px solid #6f5354;
-    border-radius:50%;
-    top:126px;
-    z-index:4;
-}
-
-.arm.left{left:27px;transform:rotate(28deg)}
-.arm.right{right:27px;transform:rotate(-28deg)}
-
-.lily{
-    position:absolute;
-    z-index:8;
-    left:58px;
-    top:100px;
-    transform:rotate(-13deg);
-}
-
-.flower{
-    position:relative;
-    width:55px;
-    height:55px;
-}
-
-.flower span{
-    position:absolute;
-    width:35px;
-    height:48px;
-    background:#f7b8c4;
-    border:1px solid #c67e91;
-    border-radius:70% 30% 70% 30%;
-    left:10px;
-    top:4px;
-}
-
-.flower span:nth-child(1){transform:rotate(0deg)}
-.flower span:nth-child(2){transform:rotate(72deg)}
-.flower span:nth-child(3){transform:rotate(144deg)}
-.flower span:nth-child(4){transform:rotate(216deg)}
-.flower span:nth-child(5){transform:rotate(288deg)}
-
-.flower i{
-    position:absolute;
-    width:12px;
-    height:12px;
-    background:#d49c4c;
-    border-radius:50%;
-    left:21px;
-    top:21px;
-    z-index:2;
-}
-
-/* COUNTDOWN */
-
-.countdown{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:9px;
-    margin-top:20px;
-}
-
-.time{
-    background:#d991a0;
-    color:#fff6e8;
-    padding:13px 5px;
-    border-radius:5px;
-    text-align:center;
-}
-
-.time strong{
-    display:block;
-    font-family:"Cormorant Garamond",serif;
-    font-size:29px;
-}
-
-.time small{
-    font-size:9px;
-    letter-spacing:1px;
-}
-
-/* KITTEN NOTES */
-
-.kitten-area{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:15px;
-    margin-top:20px;
+.kitten-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
 }
 
 .kitten-card{
-    min-height:145px;
-    background:rgba(255,247,230,.72);
-    border:1px solid rgba(112,75,78,.2);
-    border-radius:8px;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    cursor:pointer;
-    transition:.3s;
-    position:relative;
-    overflow:hidden;
+  position:relative;
+  min-height:270px;
+  padding:25px;
+  border-radius:25px;
+  background:rgba(255,244,232,.75);
+  border:1px solid rgba(101,31,50,.18);
+  box-shadow:0 18px 40px rgba(77,18,34,.13);
+  cursor:pointer;
+  overflow:hidden;
+  transition:.4s ease;
+  text-align:center;
 }
 
 .kitten-card:hover{
-    transform:translateY(-5px) rotate(-1deg);
-    box-shadow:0 13px 25px rgba(83,48,54,.16);
+  transform:translateY(-10px) rotate(-1deg);
+  box-shadow:0 28px 55px rgba(77,18,34,.2);
 }
 
-.mini-cat{
-    font-size:54px;
-    filter:drop-shadow(0 5px 3px rgba(80,50,50,.1));
+.kitten{
+  width:110px;
+  height:100px;
+  margin:5px auto 20px;
+  position:relative;
+  animation:kittyFloat 4s ease-in-out infinite;
 }
 
-.kitten-card span{
-    font-family:"Cormorant Garamond",serif;
-    font-size:18px;
-    margin-top:7px;
+.kitten:nth-child(2){
+  animation-delay:1s;
 }
 
-/* BUTTONS */
-
-.interactions{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:15px;
+@keyframes kittyFloat{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-8px)}
 }
 
-.action{
-    border:0;
-    padding:22px 10px;
-    border-radius:8px;
-    background:#d991a0;
-    color:#fff7e8;
-    font-family:"Cormorant Garamond",serif;
-    font-size:23px;
-    cursor:pointer;
-    box-shadow:0 8px 18px rgba(84,48,54,.15);
-    transition:.2s;
+.kitty-head{
+  position:absolute;
+  width:82px;
+  height:72px;
+  background:#fff4e8;
+  border-radius:45% 45% 42% 42%;
+  left:14px;
+  top:18px;
+  border:2px solid #c78d83;
 }
 
-.action:hover{
-    transform:translateY(-3px);
+.ear{
+  position:absolute;
+  width:28px;
+  height:28px;
+  background:#fff4e8;
+  border:2px solid #c78d83;
+  top:3px;
+  transform:rotate(45deg);
+  z-index:-1;
 }
 
-.action:active{
-    transform:scale(.96);
+.ear.left{left:16px}
+.ear.right{right:16px}
+
+.eye{
+  position:absolute;
+  width:8px;
+  height:11px;
+  background:#562335;
+  border-radius:50%;
+  top:38px;
 }
 
-/* POPUP */
+.eye.left{left:28px}
+.eye.right{right:28px}
 
-.popup{
-    position:fixed;
-    inset:0;
-    display:none;
-    align-items:center;
-    justify-content:center;
-    padding:25px;
-    background:rgba(61,39,43,.48);
-    backdrop-filter:blur(8px);
-    z-index:100;
+.nose{
+  position:absolute;
+  width:7px;
+  height:5px;
+  background:#d47c8f;
+  border-radius:50%;
+  left:37px;
+  top:52px;
 }
 
-.popup.show{
-    display:flex;
-    animation:fadeIn .3s ease;
+.whisker{
+  position:absolute;
+  width:28px;
+  height:1px;
+  background:#9e6b72;
+  top:55px;
 }
 
-.popup-card{
-    width:min(450px,100%);
-    background:#fff3dc;
-    padding:35px 25px;
-    border-radius:7px;
-    border:2px solid #d0b178;
-    text-align:center;
-    position:relative;
-    box-shadow:0 25px 70px rgba(50,30,35,.35);
-    animation:pop .35s ease;
+.w1{left:0;transform:rotate(8deg)}
+.w2{right:0;transform:rotate(-8deg)}
+
+.bow{
+  position:absolute;
+  right:-2px;
+  top:0;
+  font-size:31px;
+  transform:rotate(-15deg);
 }
 
-.popup-card:before{
-    content:"";
-    position:absolute;
-    inset:9px;
-    border:1px solid rgba(190,150,91,.5);
-    pointer-events:none;
+.kitten-card h3{
+  font-family:"Cormorant Garamond",serif;
+  font-size:26px;
+  color:var(--wine);
 }
 
-.popup-card h3{
-    font-family:"Cormorant Garamond",serif;
-    font-size:38px;
-    margin-bottom:12px;
+.kitten-card p{
+  margin-top:8px;
+  font-size:12px;
+  color:#704250;
 }
 
-.popup-card p{
-    font-family:"Cormorant Garamond",serif;
-    font-size:21px;
-    line-height:1.5;
-    position:relative;
-    z-index:2;
+/* =========================
+   LOVE NOTE MODAL
+========================= */
+
+.modal{
+  position:fixed;
+  inset:0;
+  z-index:100;
+  background:rgba(39,8,19,.72);
+  backdrop-filter:blur(10px);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  opacity:0;
+  pointer-events:none;
+  transition:.35s ease;
+}
+
+.modal.active{
+  opacity:1;
+  pointer-events:auto;
+}
+
+.note-box{
+  width:min(600px,100%);
+  position:relative;
+  padding:50px 35px;
+  background:#fff0e4;
+  border-radius:14px;
+  border:1px solid #c99b58;
+  box-shadow:0 30px 100px rgba(0,0,0,.35);
+  text-align:center;
+  transform:translateY(25px) scale(.95);
+  transition:.4s ease;
+}
+
+.modal.active .note-box{
+  transform:none;
+}
+
+.note-box h3{
+  font-family:"Great Vibes",cursive;
+  font-size:55px;
+  color:var(--wine);
+}
+
+.note-box p{
+  margin:20px auto 25px;
+  max-width:470px;
+  font-family:"Cormorant Garamond",serif;
+  font-size:21px;
+  line-height:1.65;
+  color:#4d2632;
 }
 
 .close{
-    margin-top:22px;
-    border:1px solid #b9956a;
-    background:transparent;
-    color:#704b52;
-    padding:9px 22px;
-    border-radius:50px;
-    cursor:pointer;
+  position:absolute;
+  right:16px;
+  top:12px;
+  border:0;
+  background:none;
+  font-size:28px;
+  cursor:pointer;
+  color:var(--wine);
 }
 
-@keyframes pop{
-    from{transform:scale(.75);opacity:0}
-    to{transform:scale(1);opacity:1}
+/* =========================
+   HUG / KISS
+========================= */
+
+.action-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:25px;
+  max-width:750px;
+  margin:auto;
 }
 
-@keyframes fadeIn{
-    from{opacity:0}
-    to{opacity:1}
+.action-card{
+  background:rgba(255,244,232,.78);
+  padding:40px 25px;
+  text-align:center;
+  border-radius:25px;
+  border:1px solid rgba(101,31,50,.18);
+  box-shadow:0 20px 45px rgba(77,18,34,.13);
 }
 
-/* FLYING HEARTS */
-
-.heart{
-    position:fixed;
-    pointer-events:none;
-    z-index:120;
-    font-size:25px;
-    animation:heartFly 1.8s ease-out forwards;
+.action-icon{
+  font-size:65px;
+  display:block;
+  margin-bottom:15px;
+  transition:.3s ease;
 }
 
-@keyframes heartFly{
-    0%{transform:translate(-50%,0) scale(.5);opacity:1}
-    100%{transform:translate(calc(-50% + var(--drift)), -230px) scale(1.4);opacity:0}
+.action-card:hover .action-icon{
+  transform:scale(1.15) rotate(-5deg);
 }
 
-/* FOOTER */
-
-.footer{
-    text-align:center;
-    color:#fff1df;
-    padding:10px 0 60px;
-    font-family:"Cormorant Garamond",serif;
-    font-size:21px;
+.action-card h3{
+  font-family:"Cormorant Garamond",serif;
+  color:var(--wine);
+  font-size:32px;
+  margin-bottom:10px;
 }
 
-.footer .heartline{
-    font-size:25px;
-    letter-spacing:5px;
-    margin-bottom:8px;
+.action-card p{
+  color:#714250;
+  font-size:13px;
+  margin-bottom:20px;
 }
 
-/* MUSIC */
+/* =========================
+   LOVE METER
+========================= */
 
-.music{
-    position:fixed;
-    right:22px;
-    bottom:22px;
-    width:49px;
-    height:49px;
-    border-radius:50%;
-    border:1px solid rgba(255,243,220,.8);
-    background:rgba(217,145,160,.85);
-    color:#fff3dc;
-    z-index:70;
-    cursor:pointer;
-    box-shadow:0 7px 20px rgba(70,40,45,.2);
+.meter-box{
+  max-width:700px;
+  margin:auto;
+  text-align:center;
 }
 
-/* RESPONSIVE */
+.meter{
+  height:18px;
+  background:#efd0d0;
+  border-radius:999px;
+  overflow:hidden;
+  margin:25px 0;
+  border:1px solid rgba(101,31,50,.15);
+}
 
-@media(max-width:420px){
-    .page{padding:14px}
-    .hero h1{font-size:57px}
-    .card{padding:28px 18px}
-    .letter{font-size:18px}
-    .section-title{font-size:35px}
+.meter-fill{
+  width:0%;
+  height:100%;
+  border-radius:inherit;
+  background:linear-gradient(90deg,#9d405a,#e58a9b,#c99b58);
+  transition:1.5s cubic-bezier(.2,.8,.2,1);
+}
+
+.meter-number{
+  font-family:"Great Vibes",cursive;
+  font-size:55px;
+  color:var(--wine);
+}
+
+/* =========================
+   FLOWER SECTION
+========================= */
+
+.flower-stage{
+  min-height:310px;
+  position:relative;
+  overflow:hidden;
+  border-radius:30px;
+  background:rgba(71,15,30,.8);
+  border:1px solid rgba(255,244,232,.25);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+}
+
+.flower{
+  width:90px;
+  height:90px;
+  position:relative;
+  transform:scale(.2);
+  opacity:.3;
+  transition:1.2s ease;
+}
+
+.flower.bloom{
+  transform:scale(1);
+  opacity:1;
+}
+
+.petal{
+  width:45px;
+  height:65px;
+  position:absolute;
+  left:22px;
+  top:8px;
+  background:linear-gradient(#f8c6d0,#c95f79);
+  border-radius:50% 50% 45% 45%;
+  transform-origin:50% 85%;
+}
+
+.petal:nth-child(1){transform:rotate(0)}
+.petal:nth-child(2){transform:rotate(60deg)}
+.petal:nth-child(3){transform:rotate(120deg)}
+.petal:nth-child(4){transform:rotate(180deg)}
+.petal:nth-child(5){transform:rotate(240deg)}
+.petal:nth-child(6){transform:rotate(300deg)}
+
+.flower-center{
+  position:absolute;
+  width:30px;
+  height:30px;
+  background:#e8bd67;
+  border-radius:50%;
+  left:30px;
+  top:32px;
+  z-index:2;
+}
+
+.flower-stage h3{
+  color:#fff4e8;
+  font-family:"Cormorant Garamond",serif;
+  font-size:30px;
+  margin-top:20px;
+}
+
+.flower-stage p{
+  color:#e9cbd0;
+  font-size:12px;
+  margin:8px 0 20px;
+}
+
+/* =========================
+   SECRET
+========================= */
+
+.secret{
+  max-width:800px;
+  margin:auto;
+  text-align:center;
+}
+
+.envelope{
+  width:190px;
+  height:125px;
+  margin:30px auto;
+  position:relative;
+  cursor:pointer;
+  transition:.5s ease;
+}
+
+.envelope:hover{
+  transform:translateY(-8px) rotate(-2deg);
+}
+
+.env-body{
+  position:absolute;
+  inset:0;
+  background:#f4c5bd;
+  border:2px solid #9e5364;
+  border-radius:8px;
+}
+
+.env-flap{
+  position:absolute;
+  left:0;
+  top:0;
+  width:0;
+  height:0;
+  border-left:94px solid transparent;
+  border-right:94px solid transparent;
+  border-top:67px solid #df9ea4;
+  transform-origin:top;
+  transition:.6s ease;
+  z-index:3;
+}
+
+.envelope.open .env-flap{
+  transform:rotateX(180deg);
+}
+
+.env-heart{
+  position:absolute;
+  left:50%;
+  top:48%;
+  transform:translate(-50%,-50%);
+  font-size:35px;
+  z-index:4;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+  position:relative;
+  z-index:5;
+  text-align:center;
+  padding:80px 20px 100px;
+  color:#fff0e6;
+}
+
+footer .big{
+  font-family:"Great Vibes",cursive;
+  font-size:60px;
+}
+
+footer p{
+  margin-top:10px;
+  color:#f2d6d3;
+  font-size:13px;
+}
+
+/* =========================
+   EFFECTS
+========================= */
+
+.spark{
+  position:fixed;
+  pointer-events:none;
+  z-index:200;
+  font-size:20px;
+  animation:spark .9s ease forwards;
+}
+
+@keyframes spark{
+  0%{
+    opacity:1;
+    transform:translate(-50%,-50%) scale(.5);
+  }
+  100%{
+    opacity:0;
+    transform:translate(
+      calc(-50% + var(--x)),
+      calc(-50% + var(--y))
+    ) scale(1.3) rotate(25deg);
+  }
+}
+
+.hug-overlay,
+.kiss-overlay{
+  position:fixed;
+  inset:0;
+  z-index:150;
+  pointer-events:none;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  opacity:0;
+}
+
+.hug-overlay.show,
+.kiss-overlay.show{
+  animation:overlay .9s ease forwards;
+}
+
+.big-hug{
+  font-size:clamp(90px,25vw,230px);
+  animation:hug .9s ease;
+}
+
+@keyframes hug{
+  0%{transform:scale(.4)}
+  55%{transform:scale(1.15)}
+  100%{transform:scale(1)}
+}
+
+.kiss-heart{
+  position:absolute;
+  font-size:30px;
+  animation:kiss 1.6s ease forwards;
+}
+
+@keyframes kiss{
+  from{
+    transform:translateY(0) scale(.4);
+    opacity:0;
+  }
+  20%{opacity:1}
+  to{
+    transform:translateY(-65vh) translateX(var(--move)) scale(1.5) rotate(20deg);
+    opacity:0;
+  }
+}
+
+@keyframes overlay{
+  0%{opacity:0}
+  20%{opacity:1}
+  75%{opacity:1}
+  100%{opacity:0}
+}
+
+/* =========================
+   SCROLL REVEAL
+========================= */
+
+.reveal{
+  opacity:0;
+  transform:translateY(35px);
+  transition:1s ease;
+}
+
+.reveal.visible{
+  opacity:1;
+  transform:none;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:760px){
+  .nav{
+    width:calc(100% - 25px);
+    justify-content:center;
+  }
+
+  .nav button{
+    padding:8px 9px;
+    font-size:10px;
+  }
+
+  .royal-card{
+    padding:38px 24px;
+  }
+
+  .kitten-grid{
+    grid-template-columns:1fr;
+  }
+
+  .action-grid{
+    grid-template-columns:1fr;
+  }
+
+  section{
+    padding:75px 15px;
+  }
+
+  .hero{
+    padding-top:100px;
+  }
+
+  .ornament{
+    font-size:75px;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  *,
+  *::before,
+  *::after{
+    animation-duration:.01ms !important;
+    animation-iteration-count:1 !important;
+    scroll-behavior:auto !important;
+    transition-duration:.01ms !important;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<div class="ornate-border"></div>
-
-<div class="filigree">
-    <span class="f1">❦</span>
-    <span class="f2">❧</span>
-    <span class="f3">❦</span>
-    <span class="f4">❧</span>
-    <span class="f5">❦</span>
-</div>
-
 <div class="page">
 
-<!-- HERO -->
-<section class="hero">
+  <div class="ornament one">❧</div>
+  <div class="ornament two">❦</div>
+  <div class="ornament three">❧</div>
+  <div class="ornament four">❦</div>
 
-    <div class="small-crown">✦ ❦ ✦</div>
+  <div id="particles"></div>
 
-    <h1>
-        Six Months
-        <span>of us ♡</span>
-    </h1>
+  <!-- NAV -->
+  <nav class="nav">
+    <button onclick="goTo('home')">Home</button>
+    <button onclick="goTo('letter')">Letter</button>
+    <button onclick="goTo('kittens')">Kittens</button>
+    <button onclick="goTo('love')">Love</button>
+    <button onclick="goTo('secret')">Secret</button>
+  </nav>
 
-    <p class="subtitle">
-        six months, countless little moments,<br>
-        and still my favourite person.
-    </p>
+  <!-- HERO -->
+  <main id="home" class="hero">
+    <div class="hero-inner">
 
-    <div class="date-ribbon">
-        07 · 03 · 2026 — 07 · 09 · 2026
+      <div class="kicker">September 7 · 2026</div>
+
+      <h1>Six Months</h1>
+
+      <h2>for my favourite person ♡</h2>
+
+      <p>
+        A tiny little royal corner of the internet,
+        made for someone who deserves a whole lot of love.
+      </p>
+
+      <div class="btn-row">
+        <button class="btn dark" onclick="goTo('letter')">
+          Open My Heart ♡
+        </button>
+
+        <button class="btn" onclick="sparkleBurst(event)">
+          Make It Sparkle ✦
+        </button>
+      </div>
+
+      <div class="scroll-hint">
+        ↓ there's more for you
+      </div>
+
     </div>
-
-    <div class="scroll">SCROLL GENTLY ↓</div>
-</section>
+  </main>
 
 
-<!-- MAIN -->
-<section class="section">
+  <!-- ANNIVERSARY LETTER -->
+  <section id="letter">
+    <div class="section-inner reveal">
 
-<div class="card">
+      <div class="section-title">
+        <small>the part that matters most</small>
+        <h2>A Letter For You</h2>
+      </div>
 
-    <div class="character-box">
+      <div class="royal-card letter">
 
-        <div class="kitty" onclick="showPopup(
-        'A tiny little flower for you 🌷',
-        'Because if I could give you one thing today, it would be something soft, pretty and a little bit like the way you make my days feel.'
-        )">
+        <span class="corner c1">❦</span>
+        <span class="corner c2">❦</span>
+        <span class="corner c3">❦</span>
+        <span class="corner c4">❦</span>
 
+        <div class="letter-label">
+          six months · september 7
+        </div>
+
+        <h3>My Love,</h3>
+
+        <div class="letter-text">
+
+          <p>
+            Six months with you, and somehow, “six months” feels too small
+            for everything you mean to me.
+          </p>
+
+          <p>
+            There is something so quietly beautiful about having you in my
+            life. You have become a part of my days in the most effortless
+            way — not something I ever had to force, but something that simply
+            found its place in my heart and stayed there.
+          </p>
+
+          <p>
+            I love you in the softest ways. In the way I think of you when
+            I see something you'd like. In the way your name can make an
+            ordinary moment feel a little warmer. In the way I can be
+            completely myself around you and still feel understood.
+            And maybe that's what I love most — you never had to be anything
+            more than yourself for me to fall for you this deeply.
+          </p>
+
+          <p>
+            If I could put what you mean to me into one feeling, it would be
+            the feeling of home — not a place, but a person. A person whose
+            presence makes the world feel a little gentler, whose voice feels
+            familiar, and whose existence alone can make a day feel better.
+          </p>
+
+          <p>
+            I don't think love is always supposed to be loud. Sometimes it's
+            simply knowing that there's one person you want to tell everything
+            to. One person whose happiness genuinely matters to you. One
+            person you look at and quietly think,
+            “I'm really lucky that it's you.”
+          </p>
+
+          <p>
+            And that's exactly how I feel about you.
+          </p>
+
+          <p>
+            I hope you always know how deeply you are loved, how beautifully
+            you are appreciated, and how special your place in my heart is.
+            Not because of anything you do, not because you have to be
+            perfect, but simply because you are you.
+          </p>
+
+          <p>
+            Six months, my love. And if there's one thing I know for sure,
+            it's that I would still choose you in every version of this story.
+          </p>
+
+          <p>
+            Happy six months. ❤️
+          </p>
+
+          <p>
+            You are, and will always be, one of the most beautiful parts
+            of my life.
+          </p>
+
+          <p>
+            I love you. More quietly than words can explain,
+            and more deeply than words ever could.
+          </p>
+
+        </div>
+
+        <div class="signature">
+          yours, always ♡
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- KITTEN GARDEN -->
+  <section id="kittens">
+    <div class="section-inner reveal">
+
+      <div class="section-title">
+        <small>tiny things for you</small>
+        <h2>Kitten Garden 🐾</h2>
+        <p>
+          Every little kitten has a tiny note hidden inside.
+          Tap them. Don't be shy. ♡
+        </p>
+      </div>
+
+      <div class="kitten-grid">
+
+        <div class="kitten-card" onclick="openNote(0)">
+          <div class="kitten">
             <div class="ear left"></div>
             <div class="ear right"></div>
-
-            <div class="cat-head">
-                <div class="eye left"></div>
-                <div class="eye right"></div>
-                <div class="nose"></div>
-
-                <div class="whisker w1"></div>
-                <div class="whisker w2"></div>
-                <div class="whisker w3"></div>
-                <div class="whisker w4"></div>
-
-                <div class="bow"><span></span></div>
+            <div class="kitty-head">
+              <div class="eye left"></div>
+              <div class="eye right"></div>
+              <div class="nose"></div>
+              <div class="whisker w1"></div>
+              <div class="whisker w2"></div>
             </div>
+            <div class="bow">🎀</div>
+          </div>
+          <h3>For You</h3>
+          <p>tap the little kitten ♡</p>
+        </div>
 
-            <div class="body"></div>
-            <div class="arm left"></div>
-            <div class="arm right"></div>
-
-            <div class="lily">
-                <div class="flower">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <i></i>
-                </div>
+        <div class="kitten-card" onclick="openNote(1)">
+          <div class="kitten">
+            <div class="ear left"></div>
+            <div class="ear right"></div>
+            <div class="kitty-head">
+              <div class="eye left"></div>
+              <div class="eye right"></div>
+              <div class="nose"></div>
+              <div class="whisker w1"></div>
+              <div class="whisker w2"></div>
             </div>
-
+            <div class="bow">🌸</div>
+          </div>
+          <h3>Another One</h3>
+          <p>there's something sweet inside</p>
         </div>
+
+        <div class="kitten-card" onclick="openNote(2)">
+          <div class="kitten">
+            <div class="ear left"></div>
+            <div class="ear right"></div>
+            <div class="kitty-head">
+              <div class="eye left"></div>
+              <div class="eye right"></div>
+              <div class="nose"></div>
+              <div class="whisker w1"></div>
+              <div class="whisker w2"></div>
+            </div>
+            <div class="bow">🌷</div>
+          </div>
+          <h3>One More</h3>
+          <p>because one note wasn't enough</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- LOVE NOTES -->
+  <section id="love">
+    <div class="section-inner reveal">
+
+      <div class="section-title">
+        <small>little interactions</small>
+        <h2>Just Because I Love You</h2>
+      </div>
+
+      <div class="action-grid">
+
+        <div class="action-card">
+          <span class="action-icon">🫂</span>
+          <h3>Need a Hug?</h3>
+          <p>
+            This button is scientifically proven to contain
+            an unreasonable amount of affection.
+          </p>
+          <button class="btn dark" onclick="giveHug()">
+            Send Me A Hug
+          </button>
+        </div>
+
+        <div class="action-card">
+          <span class="action-icon">💋</span>
+          <h3>A Little Kiss</h3>
+          <p>
+            Tap once and let the screen become unnecessarily cute.
+          </p>
+          <button class="btn dark" onclick="giveKiss()">
+            Send A Kiss
+          </button>
+        </div>
+
+      </div>
 
     </div>
+  </section>
 
 
-    <h2 class="section-title">For My Favourite Girl</h2>
-    <p class="section-sub">a little something from my heart ♡</p>
+  <!-- LOVE METER -->
+  <section>
+    <div class="section-inner reveal">
 
-    <div class="letter">
-Today, we’ve officially completed 6 months together, and honestly, I still can’t believe how quickly the time passed from March till now. In these 6 months, we’ve been through so much together. We’ve talked about so many things, made so many memories, laughed so much, been happy together, had misunderstandings, fought, made up, and somehow after every fight, we still found our way back to each other.
-
-I don’t think a relationship is supposed to be happy every single moment. For me, what matters even more is that when things get difficult, we don’t give up on each other. We choose each other, we stay, we talk things out, and we try to make everything okay together.
-
-And somewhere in these 6 months, you stopped being just someone I talk to and became such a huge part of my life. Now whenever something happens in my day, whether it’s something funny, something good, something random or even something bad, my first thought is always to tell you and share it with you. I don’t even remember when it became so normal for me to have you in everything, but now I genuinely can’t imagine my days without you.
-
-And there are so many things about you that make me love you even more. The way you care about me, the way you understand me, the way you love me even when I’m not at my best, it all means more to me than you probably realise.
-
-You put up with my mood swings, my stupid little things, my mistakes, and even when I mess up, you still try to understand me and forgive me. I know I’m not perfect, and sometimes I do things without thinking and end up hurting you, but the fact that you still stay beside me and try to make things better means so much to me.
-
-You haven’t just loved me, you’ve understood me. You’ve made me feel cared for, heard and loved in ways I probably don’t say enough. And honestly, I hope you always know how much that means to me.
-
-I just want you to know that no matter how many times I say I love you, I don’t think those words will ever be enough to explain what you actually mean to me. You’ve become someone I care about so deeply, and I never want you to doubt how important you are to me.
-
-I don’t know what the next months or years are going to look like. I just know that right now, I’m really happy that I have you, and I want to keep choosing you every day. I want us to keep growing together, keep understanding each other, keep laughing at the stupidest things, keep fixing things when they go wrong, and keep making our own little memories.
-
-These six months have been really special to me, and I’m genuinely grateful for every little part of them.
-
-Happy 6 months to us, my love.
-
-I love you so, so much. ♡
-    </div>
-
-    <div class="signature">
-        — yours, always ♡
-    </div>
-
-</div>
-</section>
-
-
-<!-- COUNTDOWN -->
-<section class="section">
-<div class="card">
-
-    <h2 class="section-title">Six Months Together</h2>
-    <p class="section-sub">and the little counter of us...</p>
-
-    <div class="countdown">
-        <div class="time">
-            <strong id="days">000</strong>
-            <small>DAYS</small>
-        </div>
-
-        <div class="time">
-            <strong id="hours">00</strong>
-            <small>HOURS</small>
-        </div>
-
-        <div class="time">
-            <strong id="minutes">00</strong>
-            <small>MINUTES</small>
-        </div>
-    </div>
-
-</div>
-</section>
-
-
-<!-- KITTEN NOTES -->
-<section class="section">
-<div class="card">
-
-    <h2 class="section-title">Tiny Kitten Notes 🐾</h2>
-    <p class="section-sub">tap a little kitten — it has something to tell you</p>
-
-    <div class="kitten-area">
-
-        <div class="kitten-card" onclick="showPopup(
-        'Little reminder ♡',
-        'You are loved. Even on the days when you don’t feel your best, even on the days when everything feels a little too much. Please remember that you are incredibly precious to me.'
-        )">
-            <div class="mini-cat">🐱</div>
-            <span>open me ♡</span>
-        </div>
-
-        <div class="kitten-card" onclick="showPopup(
-        'A tiny confession 🌷',
-        'I still randomly smile when I see your name. Six months later. Apparently my brain has decided that you are its favourite notification.'
-        )">
-            <div class="mini-cat">🎀</div>
-            <span>this one too</span>
-        </div>
-
-        <div class="kitten-card" onclick="showPopup(
-        'For bad days ☁️',
-        'Come here. No fixing everything right now. No overthinking. Just breathe, take it easy and remember that you have someone who cares about you a whole lot.'
-        )">
-            <div class="mini-cat">🐾</div>
-            <span>open softly</span>
-        </div>
-
-        <div class="kitten-card" onclick="showPopup(
-        'One more thing 💗',
-        'If I had to choose my favourite part of these six months, it would probably just be having you in them. That simple.'
-        )">
-            <div class="mini-cat">🌸</div>
-            <span>last one ♡</span>
-        </div>
-
-    </div>
-
-</div>
-</section>
-
-
-<!-- HUG / KISS -->
-<section class="section">
-<div class="card">
-
-    <h2 class="section-title">Come Here ♡</h2>
-    <p class="section-sub">two buttons. very important buttons.</p>
-
-    <div class="interactions">
-
-        <button class="action" onclick="sendHug()">
-            🤗<br>
-            <small>Hug me</small>
-        </button>
-
-        <button class="action" onclick="sendKiss()">
-            💋<br>
-            <small>Kiss me</small>
-        </button>
-
-    </div>
-
-</div>
-</section>
-
-
-<!-- FINAL -->
-<section class="section">
-<div class="card">
-
-    <h2 class="section-title">One Last Little Thing</h2>
-    <p class="section-sub">before you leave...</p>
-
-    <div style="
-        text-align:center;
-        font-family:'Cormorant Garamond',serif;
-        font-size:22px;
-        line-height:1.65;
-        position:relative;
-        z-index:2;
-    ">
+      <div class="section-title">
+        <small>completely accurate science</small>
+        <h2>The Love Meter</h2>
         <p>
-            If these six months were only the beginning,
-            then I really hope we get to fill the next ones
-            with even more laughter, more silly conversations,
-            more “I miss you”s, more annoying each other,
-            more understanding and a whole lot more love.
+          Warning: the meter may run out of numbers.
+        </p>
+      </div>
+
+      <div class="royal-card meter-box">
+
+        <div class="meter-number" id="meterNumber">0%</div>
+
+        <div class="meter">
+          <div class="meter-fill" id="meterFill"></div>
+        </div>
+
+        <button class="btn dark" onclick="fillLove()">
+          Measure My Love ♡
+        </button>
+
+        <p style="margin-top:20px;color:#704250;font-size:13px">
+          Don't worry. I already know the answer.
         </p>
 
-        <br>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FLOWER -->
+  <section>
+    <div class="section-inner reveal">
+
+      <div class="section-title">
+        <small>a tiny garden for you</small>
+        <h2>Make A Flower Bloom 🌷</h2>
+      </div>
+
+      <div class="flower-stage">
+
+        <div class="flower" id="flower">
+          <div class="petal"></div>
+          <div class="petal"></div>
+          <div class="petal"></div>
+          <div class="petal"></div>
+          <div class="petal"></div>
+          <div class="petal"></div>
+          <div class="flower-center"></div>
+        </div>
+
+        <h3>For the prettiest person</h3>
 
         <p>
-            Thank you for being you.
-            Thank you for loving me.
-            And thank you for choosing us.
+          press the button and let the little flower bloom
         </p>
 
-        <br>
-
-        <strong style="font-size:27px;">
-            Happy 6 Months, Anu. ♡
-        </strong>
-    </div>
-
-</div>
-</section>
-
-
-<div class="footer">
-    <div class="heartline">♡ ❦ ♡ ❦ ♡</div>
-    made with too much love
-</div>
-
-</div>
-
-
-<!-- POPUP -->
-
-<div class="popup" id="popup">
-
-    <div class="popup-card">
-
-        <h3 id="popupTitle">♡</h3>
-
-        <p id="popupText"></p>
-
-        <button class="close" onclick="closePopup()">
-            okayyy ♡
+        <button class="btn" onclick="bloomFlower()">
+          Let It Bloom ✦
         </button>
 
+      </div>
+
     </div>
+  </section>
+
+
+  <!-- SECRET -->
+  <section id="secret">
+    <div class="section-inner reveal">
+
+      <div class="section-title">
+        <small>one last little thing</small>
+        <h2>A Secret Envelope</h2>
+        <p>
+          There is absolutely no reason for this envelope to be this dramatic.
+          But it is.
+        </p>
+      </div>
+
+      <div class="secret">
+
+        <div class="envelope" id="envelope" onclick="openSecret()">
+          <div class="env-body"></div>
+          <div class="env-flap"></div>
+          <div class="env-heart">❤️</div>
+        </div>
+
+        <button class="btn dark" onclick="openSecret()">
+          Open The Secret ♡
+        </button>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- FINAL -->
+  <footer>
+
+    <div class="big">Happy Six Months, Ananta ♡</div>
+
+    <p>
+      Made with an unreasonable amount of love.
+    </p>
+
+    <div style="margin-top:30px">
+      <button class="btn" onclick="goTo('home')">
+        Back To The Beginning ↑
+      </button>
+    </div>
+
+  </footer>
 
 </div>
 
 
-<!-- MUSIC BUTTON -->
+<!-- NOTE MODAL -->
+<div class="modal" id="noteModal">
+  <div class="note-box">
 
-<button class="music" onclick="toggleMusic()" id="musicBtn">
-    ♪
-</button>
+    <button class="close" onclick="closeNote()">×</button>
 
-<audio id="music" loop>
-    <!-- Add your own music file here if you want:
-    <source src="music.mp3" type="audio/mpeg">
-    -->
-</audio>
+    <h3 id="noteTitle">For You ♡</h3>
+
+    <p id="noteText"></p>
+
+    <button class="btn dark" onclick="closeNote()">
+      Keep This One ♡
+    </button>
+
+  </div>
+</div>
+
+
+<!-- HUG -->
+<div class="hug-overlay" id="hugOverlay">
+  <div class="big-hug">🫂❤️</div>
+</div>
+
+
+<!-- KISS -->
+<div class="kiss-overlay" id="kissOverlay"></div>
 
 
 <script>
 
 /* =========================
-   PETAL ANIMATION
+   NAVIGATION
 ========================= */
 
-function createPetal(){
-
-    const petal = document.createElement("div");
-
-    petal.className = "petal";
-
-    petal.style.left = Math.random()*100 + "vw";
-
-    petal.style.setProperty(
-        "--x",
-        (Math.random()*180-90) + "px"
-    );
-
-    petal.style.animationDuration =
-        (5 + Math.random()*6) + "s";
-
-    petal.style.opacity =
-        (.25 + Math.random()*.6);
-
-    document.body.appendChild(petal);
-
-    setTimeout(()=>{
-        petal.remove();
-    },12000);
+function goTo(id){
+  document.getElementById(id).scrollIntoView({
+    behavior:"smooth",
+    block:"start"
+  });
 }
-
-setInterval(createPetal,850);
 
 
 /* =========================
-   POPUP
+   FLOATING PARTICLES
 ========================= */
 
-function showPopup(title,text){
+const particleBox = document.getElementById("particles");
 
-    document.getElementById("popupTitle").innerText = title;
+const symbols = ["♡","✦","✧","🌸","♥","·"];
 
-    document.getElementById("popupText").innerText = text;
+function createParticle(){
 
-    document.getElementById("popup").classList.add("show");
+  const p = document.createElement("span");
+
+  p.className = "particle";
+
+  p.textContent =
+    symbols[Math.floor(Math.random()*symbols.length)];
+
+  p.style.left = Math.random()*100 + "%";
+
+  p.style.setProperty(
+    "--drift",
+    (Math.random()*180-90) + "px"
+  );
+
+  p.style.animationDuration =
+    (9 + Math.random()*10) + "s";
+
+  p.style.fontSize =
+    (10 + Math.random()*13) + "px";
+
+  particleBox.appendChild(p);
+
+  setTimeout(()=>{
+    p.remove();
+  },20000);
 }
 
-function closePopup(){
+setInterval(createParticle,650);
 
-    document.getElementById("popup").classList.remove("show");
-}
 
-document.getElementById("popup").addEventListener("click",function(e){
+/* =========================
+   CLICK SPARKLES
+========================= */
 
-    if(e.target === this){
-        closePopup();
-    }
+document.addEventListener("click",(e)=>{
+
+  if(
+    e.target.closest("button") ||
+    e.target.closest(".kitten-card") ||
+    e.target.closest(".envelope")
+  ){
+    sparkleBurst(e);
+  }
 
 });
 
+function sparkleBurst(e){
+
+  const amount = 10;
+
+  for(let i=0;i<amount;i++){
+
+    const s = document.createElement("span");
+
+    s.className = "spark";
+
+    s.textContent =
+      ["♡","✦","♥","✧"][Math.floor(Math.random()*4)];
+
+    s.style.left = e.clientX + "px";
+    s.style.top = e.clientY + "px";
+
+    s.style.setProperty(
+      "--x",
+      (Math.random()*180-90) + "px"
+    );
+
+    s.style.setProperty(
+      "--y",
+      (Math.random()*180-90) + "px"
+    );
+
+    document.body.appendChild(s);
+
+    setTimeout(()=>s.remove(),1000);
+  }
+}
+
 
 /* =========================
-   HEART BURST
+   KITTEN NOTES
 ========================= */
 
-function hearts(x,y,count=12){
+const notes = [
 
-    const symbols = ["♡","♥","💗","💞","🌸"];
+{
+  title:"A Little Reminder ♡",
+  text:
+  "You are loved in ways that don't always need a reason. Sometimes I simply look at you and feel lucky that someone as lovely as you exists in my little world."
+},
 
-    for(let i=0;i<count;i++){
+{
+  title:"For My Favourite Person 🌸",
+  text:
+  "I hope you never forget how special you are. There is something about you that makes ordinary moments feel softer, and I hope I get to keep reminding you of that."
+},
 
-        const heart = document.createElement("div");
-
-        heart.className="heart";
-
-        heart.innerText =
-            symbols[Math.floor(Math.random()*symbols.length)];
-
-        heart.style.left=x+"px";
-        heart.style.top=y+"px";
-
-        heart.style.setProperty(
-            "--drift",
-            (Math.random()*180-90)+"px"
-        );
-
-        heart.style.animationDuration =
-            (1.2+Math.random()*1)+"s";
-
-        document.body.appendChild(heart);
-
-        setTimeout(()=>{
-            heart.remove();
-        },2200);
-    }
+{
+  title:"One More Thing ♡",
+  text:
+  "If I could leave one feeling with you every single day, it would be this: you are deeply appreciated, genuinely cherished, and loved exactly for being yourself."
 }
+
+];
+
+function openNote(index){
+
+  document.getElementById("noteTitle").textContent =
+    notes[index].title;
+
+  document.getElementById("noteText").textContent =
+    notes[index].text;
+
+  document.getElementById("noteModal")
+    .classList.add("active");
+}
+
+function closeNote(){
+
+  document.getElementById("noteModal")
+    .classList.remove("active");
+}
+
+document.getElementById("noteModal")
+  .addEventListener("click",(e)=>{
+
+    if(e.target.id === "noteModal"){
+      closeNote();
+    }
+
+  });
 
 
 /* =========================
    HUG
 ========================= */
 
-function sendHug(){
+function giveHug(){
 
-    const x=window.innerWidth/2;
-    const y=window.innerHeight*.6;
+  const overlay =
+    document.getElementById("hugOverlay");
 
-    hearts(x,y,20);
+  overlay.classList.remove("show");
 
-    showPopup(
-        "BIGGEST HUG 🤗",
-        "Come hereee. Consider yourself officially wrapped in the biggest, warmest virtual hug ever. Stay here for a little while. ♡"
-    );
+  void overlay.offsetWidth;
+
+  overlay.classList.add("show");
+
+  setTimeout(()=>{
+    overlay.classList.remove("show");
+  },1000);
 }
 
 
@@ -1129,136 +1584,228 @@ function sendHug(){
    KISS
 ========================= */
 
-function sendKiss(){
+function giveKiss(){
 
-    const x=window.innerWidth/2;
-    const y=window.innerHeight*.6;
+  const overlay =
+    document.getElementById("kissOverlay");
 
-    hearts(x,y,25);
+  overlay.innerHTML="";
 
-    showPopup(
-        "MWAHHH 💋",
-        "One tiny virtual kiss for you… okay maybe not tiny. You deserve a whole lot of them. 💋💗"
+  overlay.classList.remove("show");
+
+  void overlay.offsetWidth;
+
+  overlay.classList.add("show");
+
+  for(let i=0;i<18;i++){
+
+    const heart =
+      document.createElement("div");
+
+    heart.className="kiss-heart";
+
+    heart.textContent =
+      ["💋","❤️","💗","♡"][Math.floor(Math.random()*4)];
+
+    heart.style.left =
+      Math.random()*100 + "%";
+
+    heart.style.bottom =
+      (Math.random()*20) + "%";
+
+    heart.style.setProperty(
+      "--move",
+      (Math.random()*200-100)+"px"
     );
+
+    heart.style.animationDelay =
+      (Math.random()*0.5)+"s";
+
+    overlay.appendChild(heart);
+  }
+
+  setTimeout(()=>{
+    overlay.classList.remove("show");
+    overlay.innerHTML="";
+  },1900);
 }
 
 
 /* =========================
-   CLICK ANYWHERE SPARKLES
+   LOVE METER
 ========================= */
 
-document.addEventListener("click",function(e){
+function fillLove(){
 
-    if(
-        e.target.closest("button") ||
-        e.target.closest(".kitten-card") ||
-        e.target.closest(".kitty")
-    ) return;
+  const fill =
+    document.getElementById("meterFill");
 
-    hearts(e.clientX,e.clientY,5);
+  const number =
+    document.getElementById("meterNumber");
+
+  let current = 0;
+
+  fill.style.width = "100%";
+
+  const timer = setInterval(()=>{
+
+    current++;
+
+    if(current>=101){
+      current=100;
+      clearInterval(timer);
+    }
+
+    number.textContent =
+      current + "%";
+
+  },18);
+
+}
+
+
+/* =========================
+   FLOWER
+========================= */
+
+function bloomFlower(){
+
+  const flower =
+    document.getElementById("flower");
+
+  flower.classList.remove("bloom");
+
+  void flower.offsetWidth;
+
+  flower.classList.add("bloom");
+
+  for(let i=0;i<18;i++){
+
+    setTimeout(()=>{
+
+      const p =
+        document.createElement("span");
+
+      p.className="spark";
+
+      p.textContent =
+        ["🌸","✦","♡"][Math.floor(Math.random()*3)];
+
+      p.style.left =
+        (window.innerWidth/2 +
+        Math.random()*250-125) + "px";
+
+      p.style.top =
+        (window.innerHeight*.55 +
+        Math.random()*100-50) + "px";
+
+      p.style.setProperty(
+        "--x",
+        (Math.random()*160-80)+"px"
+      );
+
+      p.style.setProperty(
+        "--y",
+        (Math.random()*160-80)+"px"
+      );
+
+      document.body.appendChild(p);
+
+      setTimeout(()=>p.remove(),1000);
+
+    },i*45);
+
+  }
+
+}
+
+
+/* =========================
+   SECRET ENVELOPE
+========================= */
+
+let secretOpened=false;
+
+function openSecret(){
+
+  const envelope =
+    document.getElementById("envelope");
+
+  if(secretOpened){
+
+    openNote(2);
+    return;
+  }
+
+  envelope.classList.add("open");
+
+  secretOpened=true;
+
+  setTimeout(()=>{
+
+    document.getElementById("noteTitle")
+      .textContent="One Last Little Secret ♡";
+
+    document.getElementById("noteText")
+      .textContent=
+      "If this entire little website could say just one thing, it would be this: I hope you always know how loved you are. Not only on special days, but on every completely ordinary day too. ❤️";
+
+    document.getElementById("noteModal")
+      .classList.add("active");
+
+  },650);
+
+}
+
+
+/* =========================
+   SCROLL REVEAL
+========================= */
+
+const observer =
+  new IntersectionObserver(
+    entries=>{
+
+      entries.forEach(entry=>{
+
+        if(entry.isIntersecting){
+          entry.target.classList.add("visible");
+        }
+
+      });
+
+    },
+    {
+      threshold:.12
+    }
+  );
+
+document.querySelectorAll(".reveal")
+  .forEach(el=>observer.observe(el));
+
+
+/* =========================
+   RANDOM INITIAL PARTICLES
+========================= */
+
+for(let i=0;i<12;i++){
+  setTimeout(createParticle,i*300);
+}
+
+
+/* =========================
+   ESC TO CLOSE
+========================= */
+
+document.addEventListener("keydown",(e)=>{
+
+  if(e.key==="Escape"){
+    closeNote();
+  }
 
 });
-
-
-/* =========================
-   COUNT UP FROM MARCH 7
-========================= */
-
-function updateCounter(){
-
-    const start =
-        new Date("2026-03-07T00:00:00");
-
-    const now =
-        new Date();
-
-    let diff =
-        now-start;
-
-    if(diff<0) diff=0;
-
-    const days =
-        Math.floor(diff/(1000*60*60*24));
-
-    const hours =
-        Math.floor(
-            (diff/(1000*60*60))%24
-        );
-
-    const minutes =
-        Math.floor(
-            (diff/(1000*60))%60
-        );
-
-    document.getElementById("days").innerText =
-        String(days).padStart(3,"0");
-
-    document.getElementById("hours").innerText =
-        String(hours).padStart(2,"0");
-
-    document.getElementById("minutes").innerText =
-        String(minutes).padStart(2,"0");
-}
-
-updateCounter();
-
-setInterval(updateCounter,30000);
-
-
-/* =========================
-   MUSIC
-========================= */
-
-function toggleMusic(){
-
-    const music =
-        document.getElementById("music");
-
-    const btn =
-        document.getElementById("musicBtn");
-
-    if(!music.src){
-
-        showPopup(
-            "Music 🎵",
-            "Add your favourite song as music.mp3 in the same folder as this index.html, then the little music button will play it."
-        );
-
-        return;
-    }
-
-    if(music.paused){
-
-        music.play();
-
-        btn.innerText="Ⅱ";
-
-    }else{
-
-        music.pause();
-
-        btn.innerText="♪";
-
-    }
-}
-
-
-/* =========================
-   INTRO HEART BURST
-========================= */
-
-setTimeout(()=>{
-
-    hearts(
-        window.innerWidth/2,
-        window.innerHeight*.45,
-        10
-    );
-
-},1000);
 
 </script>
 
 </body>
 </html>
-```
